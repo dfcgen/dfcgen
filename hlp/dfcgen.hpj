@@ -1,0 +1,17 @@
+;DFCGEN Help Projectfile
+;TRANSLATION: HC31 DFCGEN.HPJ
+;
+[OPTIONS]
+WARNING=3               ;display all warnings
+ROOT=.                  ;in accordance to #include in MAP-section
+TITLE=Hilfe Koeffizienten Generator
+CONTENTS=HelpContents   ;define context of help contents
+COMPRESS=FALSE
+
+[FILES]
+dfcgen.rtf
+
+;[CONFIG]
+
+[MAP]
+#include <..\SRC\FDHELP.H>      ;context numbers to string translation
