@@ -28,7 +28,7 @@
 #define STRINGER(val)          #val                   /* stringizing macro */
 #define UPDATEFLAG(Flags, SetValue, bToSet)  \
     ((bToSet) ? ((Flags) |= (SetValue)) : ((Flags) &= ~(SetValue)))
-#define SWAP(var1, var2)        {var1^=var2; var2^=var1; var1^=var2;}
+#define SWAP(var1, var2)        {(var1)^=(var2); (var2)^=(var1); (var1)^=(var2);}
 #define MAKEWORD(l, h)          ((unsigned)((h)<<8) | (l))
 
 

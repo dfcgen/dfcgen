@@ -16,10 +16,10 @@ rem L - List contents
 cd disk
 echo Inhalt von DFCGEN.AR
 echo --------------------
-c:\yawpi\disk\ar.exe l dfcgen.ar
+c:\yawpi\ar32.exe l dfcgen.ar
 echo Inhalt von DFCWIN.AR
 echo --------------------
-c:\yawpi\disk\ar.exe l dfcwin.ar
+c:\yawpi\ar32.exe l dfcwin.ar
 
 cd ..
 pause

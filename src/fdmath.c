@@ -6,6 +6,7 @@
 #include <SIGNAL.H>
 #include <STDLIB.H>
 #include <FLOAT.H>
+#include <ASSERT.H>
 #include <VALUES.H>
 #include "FDMATH.H"
 #include "FDERROR.H"
@@ -58,13 +59,13 @@ static void GetCorrOfFunctions(int, EXTENDED, EXTENDED, EXTENDED *, EXTENDED *,
 static void GetRootsPoly2(EXTENDED, EXTENDED, struct complex *);
 static double DiffPoly(double , int, int, double *);
 static double GetMaxAbsOfPolyRoots(int, double *);
-static double EllipticIntegrArgFunc1(double phi);
 static double IntegrSimpson(double start, double stop, int n, MATHFUNCDIM2 func);
 static double IntegrTrapez(double start, double stop, int n, MATHFUNCDIM2 func);
 static double IntegrRect(double start, double stop, int n, MATHFUNCDIM2 func);
 static double BesselIntegrArgFunc(double phi);
 static BOOL ExtDiv(EXTENDED, EXTENDED, EXTENDED *);
 static double skalar(int n, double v1[], double v2[]);
+static double ComplEllMod(double k);
 
 
 
@@ -150,6 +151,16 @@ double arcosh(double x)       /* area cosinus hyperbolicus 1 < x < +INF */
 }
 
 
+/* returns the complement elliptic module k' with k'^2 = 1 - k^2
+ */
+static double ComplEllMod(double k)
+{
+    assert(fabs(k) <= 1.0);
+
+    return (sqrt(1.0-k*k));
+}
+
+
 /* if |x| < 1 use : T(x) = cos(n*arcos(x))
  * if  x >= 1 use : T(x) = cosh(n*arcosh(x))    because cosh(jx) = cos(x)
  * if x < -1 you get a little problem, because cosh(x+j*Pi) = - cosh(x)
@@ -168,79 +179,6 @@ double Chebyshev(double dOrder, double x)
     return -dResult;
 }
 
-
-/* Jacobian function, also called invers function of elliptic integral F(k, y)
-   y = sn(k, x) with k = modul,  x = F(k, arcsin(y))
- * with substitution w = arcsin(y) : x = F(k, w)
- * note : the name invers function isn't correct because w is the invers
-          function of F(k, x)
- * since sn(k, x) is periodic with 2*F(k,Pi) reduction of argument
-   into interval [0, 2*F(k,Pi)] is possible
- * use Newton method to calculate w by calculation of roots with following
-   formula : F(k, w) - x = 0
- * w[i+1] = w[i] - (F(k, w[i]) - x)/F'(k, w[i])
-          = w[i] - (F(k, w[i]) - x)*sqrt(1-k*k*sin(w[i])^2)
-          = w[i] - (F(k, w[i]) - x)*sqrt(1-k*k/2*(1-cos(2*w[i])))
- * notes :
- * I  : first deviation of elliptic integral
-        F'(k, w) = 1/sqrt(1-k*k*sin(w)^2) = 1/sqrt(1-k*k*0.5(1-cos(2y))
- * II : second deviation of elliptic integral
-        F''(k, w) = k*k*sin(w)*cos(w)*[F'(k,w)]^3
-                  = k*k/2*sin(2y)*[F'(k,w)]^3
- * III: sin(x)^2 = 0.5*(1 - cos(2x))
- * fixed point equation : phi(w) = w - (F(k,w) - x)/F'(k,w)
- * convergence criteria : m = |phi'(w)| < 1
-                          k*k/2*sin(2y)*F'(k,w)*(F(k,w)-x) < 1
- * in general for Newton method : m = | f(x[i])*f''(x[i])/[f'(x[i])]^2 |
-   and with this the abs. error estimation : |x(i+1)-root| < m/(1-m)*|x(i+1)-x(i)|
- *
- * with w also y is known : y=sin(w)
- */
-
-double JacobiSN(double k, double x, double MaxErr)
-{
-    double m, y_old, Deriv_F_Inv, Jacobi_x;
-    double AbsErr = FDMATHERRMAXRESULT, AbsErrOld = FDMATHERRMAXRESULT;
-
-    double pow_k_2 = k*k*0.5;
-    double y = 1.0;
-    int sign_x = SIGN(x);
-
-    x = fabs(x);               /* because floor only correct at pos. axis */
-    y_old = 4.0*EllIntegr_K(k, MaxErr);        /* period of sn(k,x) is 4K */
-    x -= y_old*floor(x/y_old);                   /* reduction of argument */
-
-    do
-    {
-        Deriv_F_Inv = sqrt(1.0 - pow_k_2*(1.0-cos(2*y)));    /* 1/F'(k,y) */
-        Jacobi_x = EllIntegr_F(k, y, MaxErr) - x;
-        m = pow_k_2*fabs(Jacobi_x*sin(2*y))/Deriv_F_Inv;      /* criteria */
-
-        if ((m >= 1.0) || (AbsErrOld < AbsErr))           /* divergence ? */
-        {                             /* attention: do not check only m ! */
-            y = x*rand()/RAND_MAX;  /* derivation of invers F(x) is lt. 1 */
-            AbsErr = AbsErrOld = FDMATHERRMAXRESULT;
-        } /* if */
-        else                                  /* convergence of iteration */
-        {
-            y_old = y;                                 
-            y -= Jacobi_x * Deriv_F_Inv;              /* next Newton step */
-            AbsErrOld = AbsErr;    
-            (void)ProtectedDiv(m*fabs(y-y_old), 1.0-m, &AbsErr);
-        } /* else */
-    } /* do ... while */
-    while (IsOutOfTol(MaxErr, AbsErr, y));
-
-    return sign_x*sin(y);
-} /* JacobiSN */
-
-
-
-double JacobiDN(double k, double x, double MaxErr)
-{
-    double sn = JacobiSN(k, x, MaxErr);
-    return sqrt(1.0-k*k*sn*sn);
-} /* JacobiDN() */
 
 
 /* bessel function of first kind, n'th order I(n,x)
@@ -315,81 +253,235 @@ double bessel(int nOrd, double x, double MaxErr)  /* Bessel function of any orde
 } /* bessel() */
 
 
+/******************* Elliptic Integrals and Functions *********************/
 
-/* elliptic integral F(k, x) = Integral(1/sqrt(1-k*k*sin(u)^2)) from
-   u=0 to u=x integration argument function
+/* Jacobian Elliptic Sine sn(x;k)
+
+ * modified invers function of elliptic integral F(k, y) expressed
+   by y = sn(k, x) with k = module,  x = F(k, arcsin(y))
+ * with substitution w = arcsin(y) : x = F(k, w)
+ * since sn(k, x) is periodic with 2*F(k,Pi) reduction of argument
+   into interval [0, 2*F(k,Pi)] is possible
+
+ * used (iterative) calculation method: descending LANDEN
+   transformation (combined with AGM)
+
+ * Parameters:
+    arg_x   argument x
+    arg_k   module in range -1 <= k <= 1
+    MaxErr  error limit (MaxErr > 0)
  */
-static double EllipticModul;                   /* global passed parameter */
 
-static double EllipticIntegrArgFunc1(double u)
+#define SIZE_SN_RECURSION_ARRAY		20
+
+double JacobiSN(double arg_k, double arg_x, double MaxErr)
 {
-    double y;
+    double a_old, a, b;
+    double k[SIZE_SN_RECURSION_ARRAY]; /* iterative modules of LANDEN transformation */
+    double x[SIZE_SN_RECURSION_ARRAY]; /* iterative x[i] */
+    int i = 0;
 
-    if (!ProtectedDiv(1.0,
-                      sqrt(1.0 - EllipticModul*EllipticModul*0.5*(1.0-cos(2.0*u))),
-                      &y))
-        y = 0.0;
+    arg_k = fabs(arg_k);
 
-    return y;
-} /* EllipticIntegrArgFunc1() */
+    assert(arg_k <= 1.0);
+    assert(MaxErr > 0.0);
+
+    k[0] = arg_k; /* first initialize AGM with a=1 b=k' */
+    x[0] = arg_x;
+
+    a = 1.0;
+    b = ComplEllMod(arg_k);
+
+    /* Recurse AGM algorithm combined with LANDEN transformation:
+       k:=(1-k')/(1+k'), x:= x/(1+k)
+     * save the sequence of iterative modules and arguments of LANDEN
+	   transformation for reverse calculation of sn(x; k) = sn(x[0]; k[0])
+     */
+
+    while ((k[i] > MaxErr) && (i < DIM(k))) /* until module is nearly zero */
+    {
+        k[++i] = (a-b)/(a+b); /* descending LANDEN transformation based on old a, b */
+
+        /* If no descend occurs this seems to be a numeric computation
+           problem or one of the regular cases for the module k=0 or k=1.
+         * It should be handled in conformance to the following special cases
+           sn(x;0) = sin(x)
+           sn(x;1) = tanh(x)
+         */
+
+        if (k[i] >= k[i-1])
+        {
+            if (arg_k > 0.5) /* special case k=1 */
+            {
+                a = tanh(arg_x);
+            }
+            else /* another extreme: k=0 */
+            {
+                a = sin(arg_x);
+            }
+
+            return (a);
+        }
+
+        x[i] = x[i-1]/(1.0 + k[i]);
+
+        a_old = a;           /* AGM */
+        a = 0.5*(a_old + b); /* arithmetic mean */
+        b = sqrt(a_old * b); /* geometric mean */
+    }; /* while */
+
+    x[i] = sin(x[i]); /* sn(x[n];k[n]) = sn(x[n];0)= sin(x) */
+
+    /* backward recurrence of sn(x; k) from all k[i], x[i]
+       by LANDENs formula:
+	 * sn(x[i-1];k[i-1]) = (1+k[i])*sn(x[i];k[i])/1+k[i]*sn^2(x[i];k[i])
+     * Uses x vector to store the calculated y[i]=sn(x[i];k[i])
+     */
+    while (i > 0)
+    {
+        x[i-1] = (1.0 + k[i])*x[i]/(1.0 + k[i]*x[i]*x[i]);
+        --i;
+    }
+
+    return (x[0]);
+}
 
 
-/* elliptic integral of first kind with module k at position x
-   F(k,x) = Integral(1/sqrt(1 - k*k * sin^2(x)))
- * note : because F(k, x+n*Pi) = F(k,x) + n*F(k,Pi) reduction of argument
-   x to interval [0,Pi] is possible
-
- * following results in relation to MathCad 4.0 (TOL=1E-14) are calculated
-   (at IBM-PC with double format 53 Bit mantisse)
-
-                    MathCad       EllIntegr_F (nSteps)
-                                          50                100               500                1000
-   F(0.1,Pi)   3.149491123034712  3.149491123034712  3.149491123034712  3.149491123034710  3.149491123034714
-   F(0.5,Pi)   3.371500709625192  3.371500709625191  3.371500709625192  3.371500709625191  3.371500709625190
-   F(0.9,Pi)   4.561098276845521  4.561098276871062  4.561098276845539  4.561098276845544  4.561098276845533
-   F(0.95,Pi)  5.180022461749018  5.180022502289042  5.180022461748998  5.180022461748997  5.180022461748998
-
- * at higher modulus k it's not so clear which program calculates the
-   precisious results
 
 
- * by varying the number of integration steps following results in relation
-   to 32764 integration steps (1000 trials) are detected
- * k in range 0.0174=sin(1°) < k < 0.9848=sin(80°) and equal distributed
- * x in range 0 < x < Pi and equal distributed
+double JacobiCN(double k, double x, double MaxErr)
+{
+    return JacobiSN(k, x + EllIntegr_K(k, MaxErr), MaxErr); /* quarter period is K(k) */
+} /* JacobiCN() */
 
-          Average-Error  Peak-Error     at F(k,x)
-   Steps
-     50    2.9E-8          6.1E-6          F(0.98108,2.78311)
-    100    2.1E-9          4.9E-7          F(0.98359,1.49961)
-    200    7.5E-11         6.4E-9          F(0.956044,1.67583)
-    500    3.6E-12         8.7E-10         F(0.9847,1.6021)
-   1000    1.5E-13         1.3E-11         F(0.966407,1.7463)
 
- * it seems, that 500 integration steps is one of the best choice
+
+double JacobiDN(double k, double x, double MaxErr)
+{
+    return ComplEllMod(k*JacobiSN(k, x, MaxErr));
+} /* JacobiDN() */
+
+
+
+
+
+/* Incomplete Elliptic Integral F(x; k) = Integral(1/sqrt(1-k*k*sin(u)^2)) from
+   u=0 to u=x
+ * Special cases:
+ 	F(x;0) = x
+	F(x;1) = ln|tan(x/2 + pi/4)|
+ * Note : because F(k, x+n*Pi) = F(k,x) + n*F(k,Pi) = F(k,x) + 2*n*K(k)
+          reduction of argument x to interval [-Pi/2,Pi/2] is possible
  */
+
 double EllIntegr_F(double Modul, double x, double MaxErr)
 {
-    double ElliPi, RatioPi, sign_x;
+    double a, b;			/* AGM variables */
+	double k, kc, k_old;	/* modules */
+	double phi, tmp, tan_phi, k_prd, n_pi;
 
-    EllipticModul = Modul;
-    sign_x = SIGN(x);
-    x = fabs(x);                 /* because floor only correct at pos. axis */
+    Modul = fabs(Modul);
 
-    ElliPi = Integrate(0.0, M_PI, MaxErr, EllipticIntegrArgFunc1); /* F(k, Pi) */
-    RatioPi = floor(x/M_PI);
-    x -= RatioPi*M_PI;            /* decimation of argument to range [0,Pi] */
-    return sign_x * (RatioPi*ElliPi + Integrate(0.0, x, MaxErr, EllipticIntegrArgFunc1));
-} /* EllIntegr_F() */
+    assert(Modul <= 1.0);
+    assert(MaxErr > 0.0);
+
+    k = Modul;
+    phi = x;
+
+    a = 1.0;				/* start values of AGM for K(k) calculation */
+    b = ComplEllMod(k);		/* complement module */
+
+    tan_phi = tan(phi);		/* results to +/- INF at Pi/2 */
+    k_prd = 1.0;
+    n_pi = M_PI*floor(phi/M_PI + 0.5); /* regard period of tan(x) */
+
+
+    /* descending LANDEN transformation until k=0
+     */
+
+    do
+    {
+        kc = b/a; 		   		/* current complement module k' */
+        phi += atan(kc*tan_phi) + n_pi;	/* transform argument with k'[i] */
+        tan_phi *= (1.0 + kc)/(1.0 - kc*tan_phi*tan_phi); /* faster than tan(phi) */
+        n_pi = M_PI*floor(phi/M_PI + 0.5);	/* round */
+
+        k_old = k;
+        k = fabs(0.5*(a-b));	/* preliminary */
+
+        tmp = a; 		   		/* AGM */
+        a = 0.5*(a + b);		/* arithmetic mean */
+        b = sqrt(tmp * b);		/* geometric mean */
+
+        k /= a;					/* new module k[i+1] = (a[i]-b[i])/a[i+1]/2 */
+						        /* the same as (1-k'[i])/(1+k'[i])
+
+	/* 	If no descend occurs this seems to be a numeric computation
+	   	problem or one of the regular cases for the module k=0 or k=1.
+		It should be handled in conformance to the special cases F(x; 0)
+        and F(x; 1)
+    */
+
+        if (k >= k_old)
+        {
+            if (Modul > 0.5) 	/* special case k=1 */
+            {
+                return (log(fabs(tan(x/2.0 + M_PI/4.0))));
+            }
+
+            return (x);  		/* another extreme: k=0 */
+        } /* if */
+
+        k_prd *= (1.0 + k)/2.0;	/* the new product (1 + k[i+1])/2) */
+    }
+    while (k > MaxErr);			/* until module is nearly zero */
+
+    return (k_prd*(atan(tan_phi) + n_pi));
+}
+
 
 
 
 /* Complete elliptic integral of the first kind K(x) = F(Pi/2; x)
+ * Description:
+ *   Complete elliptic integral of first kind K(x) in range -1 <= x <= 1
+ *
+ *   in LaTeX notation:
+ *     K(x) = \int ^1_0 [(1 - t^2)(1 - x^2 * t^2)]^{-1/2} dt
+ *          = \int ^{\pi/2}_0 [1 - x^2 * \sin u]^{-1/2} du
+ *
+ *   Used method: Arithmetic-Geometric-Mean M(a,b) with a=1, b=x'
+ *                K(x) = Pi/2/M(1, x')
+ *
+ *   Parameters:
+ *     x    argument
+ *     MaxErr  error limit (do never pass zero or less!)
+ *     x' = sqrt(1-x^2) ist the complementary module to x
  */
 double EllIntegr_K(double x, double MaxErr)
 {
-    if (fabs(x) > 1.0) raise(SIGFPE); /* module greater than 1.0 undefined */
-    return EllIntegr_F(fabs(x), M_PI_2, MaxErr);
+    double a_old;
+    double b, a = 1.0;
+
+    if (fabs(x) > 1.0) raise(SIGFPE); /* module greater than 1.0 not supported */
+
+    b = ComplEllMod(x);
+
+    /* recurse AGM algorithm
+     * special cases
+     *  K(0) = Pi/2: a=b=1=constant
+     *  K(1) = INF:  a=1,b=0 -> a=0.5,b=0 -> a=0.25,b=0 -> ... -> a=b=0
+     */
+
+    do
+    {
+        a_old = a;
+        a = 0.5*(a + b); /* arithmetic mean */
+        b = sqrt(a_old * b); /* geometric mean */
+    }
+    while (IsOutOfTol(MaxErr, (a - b)/2.0, (a + b)/2.0));
+
+    return (M_PI_2/b);
 } /* EllIntegr_K() */
 
 
@@ -725,7 +817,7 @@ static double skalar(int n, double v1[], double v2[])
 
 
 
-/* complex algebraic calculations */
+/******************* complex algebraic calculations *********************/
 
 /* complex multiply */
 struct complex CplxMult(struct complex z1, struct complex z2)

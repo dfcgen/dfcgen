@@ -70,6 +70,7 @@ double SineIntegral(double x, double MaxErr);
 double EllIntegr_F(double Modul, double phi, double MaxErr);
 double EllIntegr_K(double x, double MaxErr);
 double JacobiSN(double k, double x, double MaxErr);
+double JacobiCN(double k, double x, double MaxErr);
 double JacobiDN(double k, double x, double MaxErr);
 
 /* operations with polynomials */

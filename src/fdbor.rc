@@ -16,8 +16,8 @@
 
 
 VS_VERSION_INFO VERSIONINFO
-FILEVERSION    1, 0, 0, 0 /* 0x01000000 */
-PRODUCTVERSION 1, 0, 0, 0 /* 0x01000000 */
+FILEVERSION    1, 0, 1, 0 /* 0x01000000 */
+PRODUCTVERSION 1, 0, 1, 0 /* 0x01000000 */
 FILEFLAGSMASK  VS_FFI_FILEFLAGSMASK 
 FILEFLAGS      VS_FF_PRERELEASE |VS_FF_DEBUG 
 FILEOS         VOS__WINDOWS16
@@ -32,9 +32,9 @@ BEGIN
 		BLOCK "040704E4"                       /* German, Windows charset */
 		BEGIN
 			VALUE "CompanyName", "Dipl.-Ing. R. Hoppe\000"
-            VALUE "LegalCopyright", "Copyright © R. Hoppe 1994-1998\000"
+            VALUE "LegalCopyright", "Copyright © R. Hoppe 1994-1999\000"
 			VALUE "FileDescription", "Koeffizientengenerator für digitale Systeme\000"
-			VALUE "FileVersion", "1.00\000"
+			VALUE "FileVersion", "1.01\000"
 			VALUE "InternalName", APPNAME "\000"
 			VALUE "OriginalFilename", APPNAME ".EXE\000"
 			VALUE "ProductName", APPNAME " für Windows\000"
@@ -44,9 +44,9 @@ BEGIN
 		BLOCK "040904E4"                    /* US English, Windows charset */
 		BEGIN
 			VALUE "CompanyName", "Dipl.-Ing. R. Hoppe\000"
-            VALUE "LegalCopyright", "Copyright © R. Hoppe 1994-1998\000"
+            VALUE "LegalCopyright", "Copyright © R. Hoppe 1994-1999\000"
 			VALUE "FileDescription", "Digital Filter Coefficients Generator\000"
-			VALUE "FileVersion", "1.00\000"
+			VALUE "FileVersion", "1.01\000"
 			VALUE "InternalName", APPNAME "\000"
 			VALUE "OriginalFilename", APPNAME ".EXE\000"
 			VALUE "ProductName", APPNAME " for Windows\000"
@@ -230,7 +230,7 @@ BEGIN
 	ERROR_CAUER_MINATTLT3DB, "Die Synthese eines Cauer-Filters (Fall I) mit einer (ermittelten) minimalen Sperrdämpfung kleiner als 3dB wird nicht unterstützt."
 	ERROR_COEFF0_BAD, "Ein (Mehrere) Koeffizient(en) mit kleinem Index ist (sind) annähernd Null und wird (werden) entfernt. Die Ordnung des Polynoms verringert sich."
 	ERROR_COEFFN_BAD, "Ein (Mehrere) Koeffizient(en) mit großem Index ist (sind) annähernd Null und wird (werden) entfernt. Die Ordnung des Polynoms verringert sich."
-	ERROR_USR_ACK, "\n<Abbruch> beendet das Programm."
+	ERROR_USR_ACK, "\n[Abbruch] beendet das Programm."
 	ERROR_FLOAT_OP, "Fehler während einer math. Operation."
 	ERROR_SIGINT, "Sie haben das Programm mit ^C unterbrochen."
 	ERROR_SIGTERM, "Es ist ein schwerwiegender Fehler aufgetreten."
@@ -454,7 +454,7 @@ BEGIN
 	CONTROL "", IDD_STDIIRDLG_MINATT, "EDIT", ES_LEFT | ES_AUTOHSCROLL | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 114, 119, 40, 12
 	CONTROL "dB", IDD_STDIIRDLG_MINATT_DBTXT, STATIC_CLASS, WS_CHILD | WS_VISIBLE | WS_GROUP | SS_LEFT, 160, 122, 16, 8
 	CONTROL "&Modulwinkel", IDD_STDIIR_MODULE_TEXT, STATIC_CLASS, WS_CHILD | WS_VISIBLE | WS_GROUP, 190, 78, 44, 8
-	CONTROL "45", IDD_STDIIRDLG_MODULE_ANGLE, INCDECEDIT_CLASS, WS_CHILD | WS_VISIBLE | WS_TABSTOP, 190, 89, 32, 12
+	CONTROL "60", IDD_STDIIRDLG_MODULE_ANGLE, INCDECEDIT_CLASS, WS_CHILD | WS_VISIBLE | WS_TABSTOP, 190, 89, 32, 12
 	CONTROL "\260", IDD_STDIIR_MODDEG_TEXT, STATIC_CLASS, WS_CHILD | WS_VISIBLE | WS_GROUP, 224, 90, 8, 8
 	CONTROL "Frequenz&transf. >>", IDD_F_TRANSFORM, "BUTTON", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 158, 162, 77, 20
 	CONTROL "keine Transformation", IDD_DLG_TRANSF_TEXT, STATUS_CLASS, SS_LEFT | WS_CHILD | WS_VISIBLE, 159, 145, 77, 12
@@ -699,7 +699,7 @@ BEGIN
 	CONTROL "", IDD_OPTTECH_ERRSI, INCDECEDIT_CLASS, WS_CHILD | WS_VISIBLE | WS_TABSTOP | ES_AUTOHSCROLL, 98, 84, 82, 12
 	RTEXT "&Besselfunktion", IDD_OPTTECH_ERRBESSEL_TEXT, 11, 100, 80, 12
 	CONTROL "", IDD_OPTTECH_ERRBESSEL, INCDECEDIT_CLASS, WS_CHILD | WS_VISIBLE | WS_TABSTOP | ES_AUTOHSCROLL, 98, 98, 82, 12
-	RTEXT "&Ellipisches Integral", IDD_OPTTECH_ERRELLIPTIC_TEXT, 11, 114, 80, 12
+	RTEXT "&Elliptisches Integral", IDD_OPTTECH_ERRELLIPTIC_TEXT, 11, 114, 80, 12
 	CONTROL "", IDD_OPTTECH_ERRELLIPTIC, INCDECEDIT_CLASS, WS_CHILD | WS_VISIBLE | WS_TABSTOP | ES_AUTOHSCROLL, 98, 112, 82, 12
 	RTEXT "&Jacobische Funktionen", IDD_OPTTECH_ERRJACOBISN_TEXT, 11, 128, 80, 12
 	CONTROL "", IDD_OPTTECH_ERRJACOBISN, INCDECEDIT_CLASS, WS_CHILD | WS_VISIBLE | WS_TABSTOP | ES_AUTOHSCROLL, 98, 126, 82, 12

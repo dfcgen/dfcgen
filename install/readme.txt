@@ -1,5 +1,5 @@
 ==========================================================
-	DFCGEN v1.00 (für Windows)
+	DFCGEN v1.01 (für Windows)
 ==========================================================
 
 SHAREWARE
@@ -67,7 +67,7 @@ erforderlich) ist ein Mathematischer Koprozessor.
 
 INSTALLATION
 
-Die Installation von DFCGEN unter Windows 3.1 ist sehr 
+Die Installation von DFCGEN unter Windows ist sehr 
 einfach. Falls Sie das Programm als komprimierte Datei 
 erhalten haben, müssen Sie diese zuerst in ein temporäres 
 Verzeichnis entpacken. Haben Sie DFCGEN auf Diskette 
@@ -133,37 +133,14 @@ den Anwender als anerkannt.
 KAUF
 
 Wenn Sie sich für den Kauf von DFCGEN entscheiden, müssen 
-Sie in jedem Fall das Bestellformular ORDER.TXT ausfüllen 
-und per Post oder E-Mail an den Autor (der Lizensgebers) 
-senden. In dieser Datei finden Sie auch den aktuellen 
-Preis.
-
-Folgende Zahlungsmöglichkeiten bestehen:
-
-1. Vorkasse: Überweisen Sie den Betrag auf folgendes 
-Konto:
-	Ralf Hoppe
-	Kto-Nr. 3387990
-	Deutsche Bank Potsdam
-	BLZ 12070000
-
-2. Verrechnungsscheck: Legen Sie dem Bestellformular einen 
-ausgefüllten Verrechnungsscheck bei.
-
-3. Nachnahme: Die Auslieferung erfolgt per Nachnahme, d.h. 
-Sie bezahlen erst bei Erhalt der Software. Beachten Sie 
-jedoch, daß ein Aufschlag von 6,-DM zum üblichen Preis 
-erhoben werden muß.
-
-4. Online: Bestellen Sie bequem per Kreditkarte bei der 
-SAVE (Shareware Autoren Vereinigung) im Internet unter 
-http://www.s-a-ve.com
-
+Sie entweder das Bestellformular ORDER.TXT ausfüllen oder 
+aber Sie bestellen Online bei Shareit unter 
+http://www.shareit.com.
 
 Sobald Ihre Bestellung und der entsprechende Betrag 
 eingegangen sind, erhalten Sie Ihre Registrierungsdaten, 
-d.h. ihre persönliche Lizens per Post oder E-Mail 
-(bevorzugt) zugesandt. Diese Informationen sollten Sie im 
+d.h. ihre persönliche Lizens per E-Mail, Fax oder Post 
+zugesandt. Diese Informationen sollten Sie im 
 Dialogfenster Registrierung des Hilfe-Menüs eingeben, denn 
 nur so ist DFCGEN korrekt lizensiert.
 
@@ -175,9 +152,9 @@ COPYRIGHT
 Alle urheberrechtlichen und gewerblichen Schutzrechte an 
 diesem Programm verbleiben beim Autor:
 
-(c) Ralf Hoppe, 1994-1998
-Birkenring 18
-15749 Ragow
+(c) Ralf Hoppe, 1994-1999
+Berliner Str. 27
+15711 Koenigs Wusterhausen
 Germany
 
 
@@ -189,7 +166,7 @@ RalfHoppe@t-online.de
 
 
 Die neueste Version von DFCGEN finden Sie unter:
-http://home.t-online.de/home/RalfHoppe/dfcgen.html
+http://home.t-online.de/home/RalfHoppe
 
 
 

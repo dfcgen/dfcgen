@@ -11,8 +11,16 @@
 
 
 /* strings should'nt contain in ressource file */
+#if LANG_GERMAN
 #define ERROR_NOMEMORY "Unzureichender Speicherplatz !!! Fortsetzen ?"
 #define ERROR_WINDOWS_VERSION "Falsche Windows Version (kleiner 3.1) !!!"
+#endif
+
+
+#if LANG_ENGLISH
+#define ERROR_NOMEMORY "Not enough memory !!! Continue ?"
+#define ERROR_WINDOWS_VERSION "This program requires Windows v3.1 or higher !!!"
+#endif
 
 
 
@@ -21,7 +29,15 @@
 
 
 #if GENBORSTYLE             /* Borland dialog style */
+
+#if LANG_GERMAN
 #define ERROR_LOAD_LIBRARY "Bibliothek BWCC.DLL konnte nicht geladen werden !!!"
+#endif
+
+#if LANG_ENGLISH
+#define ERROR_LOAD_LIBRARY "Cannot load library BWCC.DLL !!!"
+#endif
+
 
 /* STATIC_CLASS, BUTTON_CLASS, RADIO_CLASS are defined in BWCC.H */
 #define FDWINDLG_CLASS      CLASS "BorDlg"

@@ -4,7 +4,7 @@
    and various special filter functions (fitting filter, integrator, hilbert
    transformer)
 
- * author : Ralf Hoppe, 1994-1998
+ * author : Ralf Hoppe, 1994-1999
  */
 
 #include "DFCWIN.H"
@@ -754,7 +754,7 @@ int DefineStdIIRFilter(HWND hDlg, tFilter *pTmpFlt, tFilter *pDestFlt)
             double *pCoeff;
             struct complex *pRootsPow2A, *pRootsPow2B;
             PolyDat PolyBx2; /* B(x)^2 means square of denominator poly in x=s^2 */
-            double dEllipticPi2;             /* complete elliptic integral */
+            double dIntK;             /* complete elliptic integral */
 
             /* the module corresponds to kappa^2 in Cauers original book and
                is the so called module = sin(Teta) */
@@ -773,8 +773,7 @@ int DefineStdIIRFilter(HWND hDlg, tFilter *pTmpFlt, tFilter *pDestFlt)
             pTmpFlt->a.order = PolyBx2.order =
                                (pTmpFlt->b.order / 2) * 2;  /* set to even */
 
-            /* calc complete elliptic integral of module 'dModule' */
-            dEllipticPi2 = EllIntegr_F(dModule, M_PI_2, aMathLimits[IMATHLIMIT_ERRELLIPTIC]);
+            dIntK = EllIntegr_K(dModule, aMathLimits[IMATHLIMIT_ERRELLIPTIC]);
 
             /* prepare roots calculation */
             idx_offset = ODD(pTmpFlt->b.order) ? 2 : 1;
@@ -786,8 +785,8 @@ int DefineStdIIRFilter(HWND hDlg, tFilter *pTmpFlt, tFilter *pDestFlt)
             for (i = 0; i < pTmpFlt->a.order; i += 2)
             {
                 d2PiF = sqrt(dModule)*
-                        Sn(dModule, (i+idx_offset)*dEllipticPi2/pTmpFlt->b.order);
-                dPow2PiF = Sn(dModule, (i+1)*dEllipticPi2/pTmpFlt->b.order);
+                        Sn(dModule, (i+idx_offset)*dIntK/pTmpFlt->b.order);
+                dPow2PiF = Sn(dModule, (i+1)*dIntK/pTmpFlt->b.order);
                 ApproxErr *= dPow2PiF*dPow2PiF*dModule;
 
                 dPow2PiF = d2PiF * d2PiF;
@@ -919,7 +918,7 @@ int DefineStdIIRFilter(HWND hDlg, tFilter *pTmpFlt, tFilter *pDestFlt)
                          * n = filter order 
                          */
                         dPow2PiF = sqrt(dModule) * Sn(dModule, (double)(pTmpFlt->b.order-1)*
-                                                               dEllipticPi2/pTmpFlt->b.order);
+                                                               dIntK/pTmpFlt->b.order);
 
                         switch(GetLowpassCutoff(pTmpFlt, dPow2PiF, 1.0/dPow2PiF,
                                                 &dCurrentCutoffLP))

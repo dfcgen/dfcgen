@@ -91,7 +91,7 @@ BOOL CALLBACK HelpLicenseDlgProc(HWND hDlg, UINT msg, WPARAM wParam, LPARAM lPar
 {
     char szCompany[SIZE_LICENSE_COMPANY+1];
     char szSerNo[SIZE_LICENSE_SERNO+1];
-    char szUsr[SIZE_LICENSE_SERNO+1];
+    char szUsr[SIZE_LICENSE_USER+1];
 
     switch (msg)
     {
@@ -108,6 +108,13 @@ BOOL CALLBACK HelpLicenseDlgProc(HWND hDlg, UINT msg, WPARAM wParam, LPARAM lPar
             SetDlgItemText(hDlg, IDD_LICENSEDLG_COMPANY, szCompany);
             SetDlgItemText(hDlg, IDD_LICENSEDLG_SN, szSerNo);
             return TRUE;
+
+#if DEBUG
+		case WM_CHAR:
+            (void)SetLicenseData(szSerNo, szUsr, szCompany);
+            SetDlgItemText(hDlg, IDD_LICENSEDLG_SN, szSerNo);
+            return FALSE;
+#endif
 
 
 	    case WM_COMMAND :

@@ -76,6 +76,10 @@ void MemCpyCrypt(void *dest, void *src, size_t n)
 
 /********* Locale functions (implementation) ***********/
 
+/* normally checks the passed license parameters
+ * but in DEBUG mode it generates the license code !!!
+   from (wrong) input data and always returns TRUE
+ */
 static BOOL ChkLicense(char *szSerNo, char *szUsrName)
 {
     char License[SIZE_LICENSE_USER+5]; /* user name + EOS + serial no. + CRC */
@@ -86,9 +90,18 @@ static BOOL ChkLicense(char *szSerNo, char *szUsrName)
     if ((n = lstrlen(License)) > 0)                  /* valid user name ? */
     {
         p = (WORD *)&License[n] + 1;                     /* points to CRC */
+// !!! BUG: but i cannot fix it (registration code problem)
+//      correct: p = (WORD *)(&License[n] + 1);
 
         if (sscanf(szSerNo, FORMAT_LICENSE_SERNO, p-1, p) == 2)
         {                                        /* valid serial no + CRC */
+
+#if DEBUG /* generate correct registration number CRC */
+            *p = ~CalcCrc(&License, (char *)(p) - License);
+            SWAP(*(BYTE *)p, *((BYTE *)p + 1));
+            sprintf(szSerNo, FORMAT_LICENSE_SERNO, *(p-1), *p);
+            MessageBox(hwndFDesk, szSerNo, "Registration Number", MB_ICONINFORMATION|MB_OK);
+#endif
             if (CalcCrc(&License, (char *)(++p) - License) == 0x1D0F) return TRUE;
         } /* if */
     } /* if */

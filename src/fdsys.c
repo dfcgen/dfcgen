@@ -3288,7 +3288,7 @@ static BOOL fnUserJacobiSN(double *x, double *y, void *pModul)
 
 static BOOL fnUserJacobiCN(double *x, double *y, void *pModul)
 {
-    *y = JacobiSN(*(double *)(pModul), *x+M_PI_2, aMathLimits[IMATHLIMIT_ERRJACOBISN]);
+    *y = JacobiCN(*(double *)(pModul), *x, aMathLimits[IMATHLIMIT_ERRJACOBISN]);
     return TRUE;
 } /* fnUserJacobiCN */
 

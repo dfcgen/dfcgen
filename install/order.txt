@@ -1,51 +1,90 @@
-Bestellformular für DFCGEN v1.xx
----------------------------------
 
-(Bitte Absender eintragen)
-(Name, Adresse, E-Mail)
+Bestellung von DFCGEN 
 
 
+Preis in Euro: 29,00
 
-Ralf Hoppe
-Birkenring 18
-15749 Ragow
+Wenn Sie DFCGEN bestellen moechten, koennen Sie das Bestellformular
+online im Internet ausfuellen und abschicken unter der folgenden
+Adresse im Internet: 
+http://shareit1.element5.com/programs.html?productid=106966.
+Alternativ koennen Sie auch auf unsere Homepage 
+http://www.shareit.com die Programmnummer eingeben: 106966. Falls Sie
+keinen Zugang zum Internet haben, koennen Sie uns das ausgefuellte
+Formular zuschicken oder faxen an:
 
+ShareIt!
+element 5 AG
+Sachsenring 69
+50677 Koeln
 
-Hiermit bestelle ich [  ] registrierte Version(en) von DFCGEN.
+Telefon:        +49-221-2407279 
+Fax:            +49-221-2407278
+E-Mail:         register@shareit.com
 
-Stückpreis:			79,- DM
+In den USA:
 
-Zahlungsweise bitte ankreuzen:
-------------------------------
-Vorkasse (siehe README.TXT)	[  ]  überwiesen am ___________
-Verrechnungsscheck beiliegend	[  ]
-Nachnahme (zzgl. 6,-DM)		[  ]
-Online				[  ]
+ShareIt! Inc.
+PO Box 844
+Greensburg, PA 15601-0844
+USA
 
-Gesamtsumme (Rechnungsbetrag):	____________ DM
-------------------------------
-
-Auslieferung:
--------------
-E-Mail				[  ]
-3.5" Diskette			[  ]
-
-Ich habe DFCGEN als Shareware Version 1.____ von ________________
-erhalten (bitte Händler, WEB-Seite, Name der CD o.ä. eintragen)
-und getestet. Wenn es sich dabei um die aktuelle Version handelt,
-wünsche ich nur die Auslieferung der Registrierungsdaten:  [  ]
-
-Verbesserungsvorschläge:
-------------------------
+Tel. 1-800-903-4152 (nur Bestellungen)
+Tel. 724-850-8186 (Kundenbetreuung)
+Fax. 724-850-8187
 
 
 
+Bestellformular fuer DFCGEN (Deutsch)
+
+
+Programm-Nr. : 106966
+
+Nachname: ___________________________________
+
+Vorname: ____________________________________
+
+Firma: ____________________________________
+
+Strasse und Nr.: ______________________________________
+
+PLZ und Stadt: ________________________________
+
+Land: _______________________________________
+
+Telefon: _____________________________________
+
+Fax: ________________________________________
+
+E-Mail: ______________________________________
+
+
+Wie wuerden Sie gerne Ihre Vollversion oder Ihren
+Registrierungschluessel erhalten?
+
+E-mail  - Fax   - per Post
+
+
+Wie moechten Sie den Programmpreis bezahlen:
+
+Kreditkarte - Ueberweisung - Scheck - Bargeld
+
+
+Informationen zu Ihrer Kreditkarte (falls zutreffend)
+
+Kreditkarte: Visa - Eurocard/Mastercard - American Express - Diners
+Club
+
+Karteninhaber: ________________________________
+
+Karten-Nr.: ___________________________________
+
+Gueltig bis : ___________________________________
+
+
+
+Datum / Unterschrift ___________________________
 
 
 
 
-
-
-
-
-Ort, Datum und Unterschrift

@@ -174,9 +174,9 @@ HWND CreateDiagWin(DIAGCREATESTRUCT *dg);
 #define DEFAULT_NULLROOT        (1.0E-11) /* display root as zero less than */
 #define DEFAULT_ERRROOTS        (1.0E-12) /* calculating bound of roots */
 #define DEFAULT_ERRSI           (1.0E-5)  /* iteration error limit Si(x) */
-#define DEFAULT_ERRJACOBISN     (1.0E-4)  /* iteration error limit sn(x) */
+#define DEFAULT_ERRJACOBISN     (1.0E-8)  /* iteration error limit sn(x) */
 #define DEFAULT_ERRBESSEL       (1.0E-5)  /* iteration error limit I(x) */
-#define DEFAULT_ERRELLIPTIC     (1.0E-5)  /* integration error limit F(k, x) */
+#define DEFAULT_ERRELLIPTIC     (1.0E-8)  /* integration error limit F(k, x) */
 #define DEFAULT_ERRKAISER       (1.0E-5)  /* Kaiser window function */
 #define DEFAULT_ERRPHASE        (1.0E-5)  /* phase if calc by integration */
 
@@ -204,8 +204,8 @@ HWND CreateDiagWin(DIAGCREATESTRUCT *dg);
 /* next three defines correponds to the rc-script file definition
    for IIR filter popup dialog */
 #define MIN_MODANGLE_INPUT     1   /* sin(1) = 0.0175 min. module angle for Cauer */
-#define MAX_MODANGLE_INPUT     80  /* sin(80) = 0.985 max. module angle for Cauer */
-#define DEFAULT_MODANGLE       45
+#define MAX_MODANGLE_INPUT     99  /* sin(80) = 0.985 max. module angle for Cauer */
+#define DEFAULT_MODANGLE       60
 
 /* derived definitions */
 #define MIN_RIPPLE_INPUT       (1.0/MAX_ATTENUAT_INPUT)     /* 0dB */
