@@ -4,7 +4,7 @@
 
 FREEWARE
 
-DFCGEN v1.1X ist FREEWARE und kann als solche ohne 
+DFCGEN v1.1x ist FREEWARE und kann als solche ohne 
 Einschränkungen (kostenlos) genutzt werden.
 
 
@@ -126,7 +126,7 @@ COPYRIGHT
 Alle urheberrechtlichen und gewerblichen Schutzrechte an 
 diesem Programm verbleiben beim Autor:
 
-(c) Ralf Hoppe, 1994-1998
+(c) Ralf Hoppe, 1994-2000
 Berliner Strasse 27
 15711 Koenigs Wusterhausen
 Germany
@@ -136,7 +136,7 @@ SUPPORT
 
 Bei Problemen steht der Autor gern unter folgender E-Mail 
 Adresse zur Verfügung:
-RalfHoppe@t-online.de
+ralf.hoppe@ieee.org
 
 
 Die neueste Version von DFCGEN finden Sie unter:

@@ -8,8 +8,8 @@ rem R - Replace
 rem D - Delete
 rem P - Print
 rem L - List contents
-echo Make Disk DFCGEN V1.1
-echo ----------------------
+echo Make Disk DFCGEN
+echo ----------------
 
 copy setup.cfg disk\setup.cfg
 copy uninstal.cfg disk\uninstal.cfg

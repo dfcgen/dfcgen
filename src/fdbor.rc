@@ -3,11 +3,15 @@
  * Copyright (c) 1994-2000 Ralf Hoppe
 
  * $Source: /home/cvs/dfcgen/src/fdbor.rc,v $
- * $Revision: 1.3 $
- * $Date: 2000-08-17 12:45:14 $
+ * $Revision: 1.4 $
+ * $Date: 2000-11-11 18:07:06 $
  * $Author: ralf $
  * History:
    $Log: not supported by cvs2svn $
+   Revision 1.3  2000/08/17 12:45:14  ralf
+   DFCGEN now is shareware (no registration or license dialogs).
+   Directory with examples added.
+
 
  */
 
@@ -29,8 +33,8 @@
 
 
 VS_VERSION_INFO VERSIONINFO 
-FILEVERSION 1, 1, 0, 0
-PRODUCTVERSION 1, 1, 0, 0
+FILEVERSION 1, 1, 1, 0
+PRODUCTVERSION 1, 1, 1, 0
 FILEOS VOS__WINDOWS16
 FILETYPE VFT_APP
 {
@@ -45,24 +49,24 @@ FILETYPE VFT_APP
   {
    VALUE "CompanyName", "Dipl.-Ing. R. Hoppe\000"
    VALUE "FileDescription", "Koeffizientengenerator für digitale Systeme\000"
-   VALUE "FileVersion", "1.1\000"
+   VALUE "FileVersion", "1.11\000"
    VALUE "InternalName", APPNAME "\000"
    VALUE "LegalCopyright", "Copyright © R. Hoppe 1994-2000\000"
    VALUE "OriginalFilename", APPNAME ".EXE\000"
    VALUE "ProductName", APPNAME " für Windows (Freeware)\000"
-   VALUE "E-Mail", "RalfHoppe@t-online.de\000"
+   VALUE "E-Mail", "ralf.hoppe@ieee.org\000"
   }
 
   BLOCK "040904E4"
   {
    VALUE "CompanyName", "Dipl.-Ing. R. Hoppe\000"
    VALUE "FileDescription", "Digital Filter Coefficients Generator\000"
-   VALUE "FileVersion", "1.1\000"
+   VALUE "FileVersion", "1.11\000"
    VALUE "InternalName", APPNAME "\000"
    VALUE "LegalCopyright", "Copyright © R. Hoppe 1994-2000\000"
    VALUE "OriginalFilename", APPNAME ".EXE\000"
    VALUE "ProductName", APPNAME " for Windows (Freeware)\000"
-   VALUE "E-Mail", "RalfHoppe@t-online.de\000"
+   VALUE "E-Mail", "ralf.hoppe@ieee.org\000"
   }
 
  }

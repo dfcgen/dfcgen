@@ -3,11 +3,15 @@
  * Copyright (c) 1994-2000 Ralf Hoppe
 
  * $Source: /home/cvs/dfcgen/src/fdprint.c,v $
- * $Revision: 1.2 $
- * $Date: 2000-08-17 12:45:25 $
+ * $Revision: 1.3 $
+ * $Date: 2000-11-11 18:07:08 $
  * $Author: ralf $
  * History:
    $Log: not supported by cvs2svn $
+   Revision 1.2  2000/08/17 12:45:25  ralf
+   DFCGEN now is shareware (no registration or license dialogs).
+   Directory with examples added.
+
 
  */
 
@@ -308,20 +312,16 @@ BOOL IsPrinterFdCompatible()
 static int DrawInfoXY(HWND hwndOwner, HDC dc, int IdStrHead, char *szInfo, int x, int y)
 {
     LOGFONT lfPrint;
-    HFONT hfStd, hfPrint;
     RECT rcOut;
     int x1, cyLine;
     char szHead[SIZE_PRJDESC];
+    HFONT hfPrint, hfStd = NULL;
 
     memset(&lfPrint, 0, sizeof(lfPrint));         /* define standard font */
-    hfPrint = CreateFontIndirect(&lfPrint);          /* create dummy font */
-    hfStd = SelectFont(dc, hfPrint);          /* select temporary into dc */
-    GetObject(hfStd, sizeof(LOGFONT), &lfPrint);      /* get current font */
-
-    DeleteFont(hfPrint);                             /* delete dummy font */
     lfPrint.lfWeight = FW_BOLD;             /* bold characters for header */
-    hfPrint = CreateFontIndirect(&lfPrint);     /* create with new weight */
-    SelectFont(dc, hfPrint);                           /* and get into dc */
+
+    if ((hfPrint = CreateFontIndirect(&lfPrint)) != NULL)
+        hfStd = SelectFont(dc, hfPrint);               /* and get into dc */
 
     SetTextAlign(dc, TA_LEFT|TA_TOP);
     LoadString(GetWindowInstance(hwndOwner), IdStrHead, szHead, DIM(szHead));
@@ -333,16 +333,26 @@ static int DrawInfoXY(HWND hwndOwner, HDC dc, int IdStrHead, char *szInfo, int x
     x1 = rcOut.right+1;                            /* save right position */
     DrawText(dc, szHead, -1, &rcOut,                      /* print header */
              DT_TOP|DT_LEFT|DT_SINGLELINE|DT_NOPREFIX|DT_EXTERNALLEADING);
-    DeleteFont(SelectFont(dc, hfStd));            /* back to default font */
+    if (hfPrint != NULL)
+	    DeleteFont(SelectFont(dc, hfStd));        /* back to default font */
 
     rcOut.top = y;                                  /* prepare new output */
     rcOut.left = x1;                         /* set for new left position */
+    rcOut.right = GetDeviceCaps(dc, HORZRES) - MM_TO_PIXEL_X(dc, PRNBORDER_RIGHT);
+
+    lfPrint.lfWeight = FW_NORMAL;           /* normal characters for text */
+    if ((hfPrint = CreateFontIndirect(&lfPrint)) != NULL)
+        hfStd = SelectFont(dc, hfPrint);               /* and get into dc */
+
     DrawText(dc, szInfo, -1, &rcOut,                        /* print info */
              DT_CALCRECT|DT_EXTERNALLEADING|DT_TOP|DT_LEFT|DT_WORDBREAK|DT_NOPREFIX);
     if (rcOut.bottom - rcOut.top > cyLine)    /* bold characters higher ? */
         cyLine = rcOut.bottom - rcOut.top;
     DrawText(dc, szInfo, -1, &rcOut,                        /* print info */
              DT_TOP|DT_LEFT|DT_WORDBREAK|DT_EXTERNALLEADING|DT_NOPREFIX);
+    if (hfPrint != NULL)
+	    DeleteFont(SelectFont(dc, hfStd));        /* back to default font */
+
     return cyLine;
 } /* PrintHeadedInfo() */
 
