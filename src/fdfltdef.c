@@ -8,11 +8,15 @@
  * Copyright (c) 1994-2000 Ralf Hoppe
 
  * $Source: /home/cvs/dfcgen/src/fdfltdef.c,v $
- * $Revision: 1.3 $
- * $Date: 2000-08-17 12:45:18 $
+ * $Revision: 1.4 $
+ * $Date: 2001-10-06 20:01:05 $
  * $Author: ralf $
  * History:
    $Log: not supported by cvs2svn $
+   Revision 1.3  2000/08/17 12:45:18  ralf
+   DFCGEN now is shareware (no registration or license dialogs).
+   Directory with examples added.
+
 
  */
 
@@ -457,8 +461,22 @@ int DefineLinFirFilter(tFilter *lpSrcFlt, tFilter *OldFilter)
     tLinFIR *lpPar = &lpSrcFlt->DefDlg.FIRDat;
     double dArithCenterF = 0.0;
 
-    if (lpSrcFlt->FTr.FTransf == NOFTR) dOmega = lpPar->dCutoff;
-    else dOmega = lpSrcFlt->FTr.dCutFBw;              /* cutoff frequency */
+    switch (lpSrcFlt->FTr.FTransf)
+    {
+	case HIGHPASS:       /* use the same cutoff frequency for lowpass */ 
+	    dOmega = lpSrcFlt->FTr.dCutFBw;
+	    break; /* cutoff F */
+
+        case BANDPASS:
+	case BANDSTOP:
+	    dOmega = 0.5 * lpSrcFlt->FTr.dCutFBw;  /* lowpass design with */
+	    break;                                      /* half bandwidth */
+
+	default:   /* NOFTR and others */
+	    dOmega = lpPar->dCutoff;
+	    break;
+    } /* switch */
+
     dOmega *= 2.0*M_PI/lpSrcFlt->f0;                    /* normed radians */
 
     lpSrcFlt->a.order = lpPar->nOrder;        /* set order of polynomials */

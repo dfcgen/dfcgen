@@ -13,8 +13,8 @@ echo ----------------
 
 copy setup.cfg disk\setup.cfg
 copy uninstal.cfg disk\uninstal.cfg
-copy c:\yawpi\install.exe disk\setup.exe
-copy c:\yawpi\uninstal.exe disk\uninstal.exe
+copy c:\progra~1\yawpi\install.exe disk\setup.exe
+copy c:\progra~1\yawpi\uninstal.exe disk\uninstal.exe
 copy ..\src\dfcgen.exe disk\dfcgen.exe
 copy ..\hlp\dfcgen.hlp disk\dfcgen.hlp
 copy german.txt disk\german.txt
@@ -24,10 +24,10 @@ copy dfcgen.ini disk\dfcgen.ini
 
 cd disk
 
-c:\yawpi\ar32.exe a dfcgen.ar dfcgen.exe dfcgen.hlp bwcc.dll
-c:\yawpi\ar32.exe a dfcgen.ar readme.txt
-c:\yawpi\ar32.exe a dfcgen.ar uninstal.exe
-c:\yawpi\ar32.exe a dfcwin.ar bwcc.dll dfcgen.ini
+c:\progra~1\yawpi\ar32.exe a dfcgen.ar dfcgen.exe dfcgen.hlp bwcc.dll
+c:\progra~1\yawpi\ar32.exe a dfcgen.ar readme.txt
+c:\progra~1\yawpi\ar32.exe a dfcgen.ar uninstal.exe
+c:\progra~1\yawpi\ar32.exe a dfcwin.ar bwcc.dll dfcgen.ini
 
 del uninstal.exe
 del dfcgen.exe
@@ -38,10 +38,10 @@ del dfcgen.ini
 
 echo Inhalt von DFCGEN.AR
 echo --------------------
-c:\yawpi\ar32.exe l dfcgen.ar
+c:\progra~1\yawpi\ar32.exe l dfcgen.ar
 echo Inhalt von DFCWIN.AR
 echo --------------------
-c:\yawpi\ar32.exe l dfcwin.ar
+c:\progra~1\yawpi\ar32.exe l dfcwin.ar
 
 echo Seal Editor nicht vergessen ???
 echo -------------------------------
