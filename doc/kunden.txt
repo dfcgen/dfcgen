@@ -1,0 +1,7 @@
+Kundenverzeichnis DFCGEN
+
+Registriername	Straﬂe		Ort			Land	Datum		Artikel		Kopien	Reg.-Nr.
+-------------------------------------------------------------------------------------------------------------------
+Ralf Hoppe	Birkenring 18	15749 Ragow		Germany	17.04.98	DFCGEN v1.00	1	49001-00712
+M. Stucki	Hausmatt 19	3662 Seftigen BE	Schweiz	29.06.99	DFCGEN v1.00	1	41001-09759
+John Cheng	66,Tsao Cho Rd.	444 TaiChung		Taiwan	09.09.99	DFCGEN v1.00	1	08801-02459
