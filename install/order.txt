@@ -1,0 +1,51 @@
+Bestellformular für DFCGEN v1.xx
+---------------------------------
+
+(Bitte Absender eintragen)
+(Name, Adresse, E-Mail)
+
+
+
+Ralf Hoppe
+Birkenring 18
+15749 Ragow
+
+
+Hiermit bestelle ich [  ] registrierte Version(en) von DFCGEN.
+
+Stückpreis:			79,- DM
+
+Zahlungsweise bitte ankreuzen:
+------------------------------
+Vorkasse (siehe README.TXT)	[  ]  überwiesen am ___________
+Verrechnungsscheck beiliegend	[  ]
+Nachnahme (zzgl. 6,-DM)		[  ]
+Online				[  ]
+
+Gesamtsumme (Rechnungsbetrag):	____________ DM
+------------------------------
+
+Auslieferung:
+-------------
+E-Mail				[  ]
+3.5" Diskette			[  ]
+
+Ich habe DFCGEN als Shareware Version 1.____ von ________________
+erhalten (bitte Händler, WEB-Seite, Name der CD o.ä. eintragen)
+und getestet. Wenn es sich dabei um die aktuelle Version handelt,
+wünsche ich nur die Auslieferung der Registrierungsdaten:  [  ]
+
+Verbesserungsvorschläge:
+------------------------
+
+
+
+
+
+
+
+
+
+
+
+Ort, Datum und Unterschrift
