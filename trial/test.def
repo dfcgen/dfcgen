@@ -1,0 +1,21 @@
+NAME    TEST
+EXETYPE WINDOWS
+
+DESCRIPTION     'Digital Filter Coefficients Generator'
+
+CODE    FIXED NONDISCARDABLE LOADONCALL
+DATA    FIXED MULTIPLE
+
+HEAPSIZE        8192
+STACKSIZE       8192
+
+EXPORTS
+    DeskWndProc              @10
+    DiagProc                 @11
+    StatusWndProc            @12
+    IncDecEditWndProc        @13
+
+
+IMPORTS
+    BWCC.BWCCMessageBox
+    BWCC.BWCCDefWindowProc
