@@ -1,0 +1,81 @@
+;; German
+;;=======
+
+Language=Deutsch
+
+Destination=Zielverzeichnis
+
+Error=Fehler
+
+DirExists=Verzeichnis bereits vorhanden
+
+DirExistsQ=Verzeichnis %s bereits vorhanden. Dateien überschreiben?
+
+CurDir=In aktuelles Verzeichnis kann nicht installiert werden
+
+DirNotFoundQ=Verzeichnis %s nicht gefunden. Trotzdem fortfahren?
+
+DirNotFound=Verzeichnis nicht gefunden
+
+NoDrive=Laufwerk muß angegeben werden
+
+InvPath=Falscher Pfad
+
+ExitQ=Wollen Sie die Installation abbrechen?
+
+DlgFailed=Dialog konnte nicht durchgeführt werden.
+
+ArcNotFound=Archiv %s nicht gefunden. Installation fortführen?
+
+CantOpen=%s kann nicht eröffnet werden
+
+FileError=Dateifehler
+
+CopyFailed=%s konnte nicht kopiert werden
+
+ProgGroup=Neue Programmgruppe
+
+AddIconsQ=Sollen die Symbole für %s im Programm-Manager\
+hinzugefügt werden?
+
+InstallAborted=Installation abgebrochen.
+
+InstallOK=Installation wurde erfolgreich beendet.
+
+NextDisk=Nächste Diskette
+
+InsDisk=Bitte Diskette %d einlegen
+
+ConfirmDir=wird installiert:
+
+Unpacking=Entpacke:
+
+Archive=Archiv
+
+File=Datei
+
+
+SpaceRequired=Für diese Installation werden %ld KB benötigt.\
+Die Festplatte %c: hat nur %ld KB freien Raum.\
+Installation trotzdem fortsetzen?
+
+NoSpace=Kein Raum auf der Festplatte
+
+DelDir=Lösche Verzeichnis.
+
+DelDirQ=Alle Dateien in %s werden gelöscht. Fortsetzen?
+
+Uninstallation=Uninstallation
+
+UninstallMsg=Alle Dateien werden gelöscht.\
+Fortsetzen?
+
+DelIcons=Die Programmgruppe löschen
+
+DelIconsQ=Die %s Symbole aus Ihrem Desktop löschen?
+UninstallDone=%s wurde entfernt.
+
+
+;; User defined keywords
+;;======================
+
