@@ -3,11 +3,15 @@
  * Copyright (c) 1994-2000 Ralf Hoppe
 
  * $Source: /home/cvs/dfcgen/src/fdbor.rc,v $
- * $Revision: 1.5 $
- * $Date: 2001-10-05 19:19:40 $
+ * $Revision: 1.6 $
+ * $Date: 2001-10-07 18:54:05 $
  * $Author: ralf $
  * History:
    $Log: not supported by cvs2svn $
+   Revision 1.5  2001/10/05 19:19:40  ralf
+   Bug fix for bandpass/bandstop transformation based on linear center
+   frequency/bandwidth input.
+
    Revision 1.4  2000/11/11 18:07:06  ralf
    * bug-fix on printing long project descriptions
    * now bold printing works correct
@@ -200,7 +204,7 @@ STRINGTABLE
  STRING_USERFN_ELLIPTIC_INTEGR1, "Unvollst. Ellipt. Integral 1. Art F(x;k)"
  STRING_USERFN_JACOBI_SN, "Elliptischer Sinus sn(x;k)"
  STRING_USERFN_JACOBI_CN, "Elliptischer Kosinus cn(x;k)"
- STRING_USERFN_JACOBI_DN, "Elliptischer Tangens dn(x;k)"
+ STRING_USERFN_JACOBI_DN, "Elliptische Delta-Amplitude dn(x;k)"
  STRING_USERFN_HAMMING, "Hamming-Fenster"
  STRING_USERFN_HANNING, "Hanning-Fenster"
  STRING_USERFN_BLACKMAN, "Blackman-Fenster"
