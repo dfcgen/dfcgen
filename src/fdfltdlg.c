@@ -5,11 +5,15 @@
  * Copyright (c) 1994-2000 Ralf Hoppe
 
  * $Source: /home/cvs/dfcgen/src/fdfltdlg.c,v $
- * $Revision: 1.2 $
- * $Date: 2000-08-17 12:45:19 $
+ * $Revision: 1.3 $
+ * $Date: 2001-10-05 19:19:40 $
  * $Author: ralf $
  * History:
    $Log: not supported by cvs2svn $
+   Revision 1.2  2000/08/17 12:45:19  ralf
+   DFCGEN now is shareware (no registration or license dialogs).
+   Directory with examples added.
+
 
  */
 
@@ -304,7 +308,7 @@ BOOL CALLBACK FTransformDlgProc(HWND hwndDlg,
                                B = fo - fu there is the following limitation
                              */
                             if (!(TmpTr.uFlags & CENTER_GEOMETRIC))
-                                dMaxCutoffBw = TmpTr.dCenter/2.0-MIN_CUTOFF_INPUT;
+                                dMaxCutoffBw = TmpTr.dCenter * 2.0 - MIN_CUTOFF_INPUT;
 
                         case HIGHPASS :
                             if (!CheckDlgItemFloat(hwndDlg, IDD_TRANS_CUTOFFBW,

@@ -126,9 +126,9 @@ COPYRIGHT
 Alle urheberrechtlichen und gewerblichen Schutzrechte an 
 diesem Programm verbleiben beim Autor:
 
-(c) Ralf Hoppe, 1994-2000
-Berliner Strasse 27
-15711 Koenigs Wusterhausen
+(c) Ralf Hoppe, 1994-2001
+Gundelfinger Strasse 40
+10318 Berlin
 Germany
 
 
@@ -140,7 +140,7 @@ ralf.hoppe@ieee.org
 
 
 Die neueste Version von DFCGEN finden Sie unter:
-http://home.t-online.de/home/RalfHoppe
+http://home.nexgo.de/dfcgen
 
 
 
