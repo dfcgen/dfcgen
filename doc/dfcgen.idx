@@ -1,49 +1,49 @@
-Package-Name:           /pub/comp/os/windows/win3.11/science/dfcg100.zip
-Title:                  DFCGEN (Synthese/Analyse linearer, zeitdiskreter Systeme/Filter)
-Version:                1.00
-Author:                 Ralf Hoppe
-Author-Telephone:       (033764) 21115
-Author-Fax:             (033764) 21115
-Author-Postal:          Birkenring 18, 15749 Ragow, Deutschland
-Author-Email:           RalfHoppe@t-online.de
-Maintained-by:          (bleibt leer)
-Postal-Address:         (bleibt leer)
-Telephone:              (bleibt leer)
-Fax:                    (bleibt leer)
-Electronic-Address:     (bleibt leer)
-Maintained-At:          http://home.t-online.de/home/RalfHoppe/dfcgen.htm
-Distribution-Type:      binary
-Restrictions:           Win 3.1/Win95, German
-Discussion-Groups:      
-Copying-Policy:         Shareware
-Modified-by:            Name des Archivars und seine EMail-Adresse
-                        Datum der letzten Modifikation des IDX-Files
-Keywords:               DFCGEN, DSP, Signalverarbeitung, Filter, FIR, IIR,
-                        Koeffizienten, Tiefpass, Cauer, Tschebyscheff, Jacobi,
-                        Butterworth, Bessel, Gauss, Hamming, Hanning, Kaiser, 
-                        Blackman, Hilbert, Integrator, Differenzierer, Amplitudengang,
-                        Phasengang, Daempfung, Drosselung, Gruppenlaufzeit, Phasenlaufzeit,
-                        Impulsantwort, Sprungantwort
-
-
-URI:                    (bleibt leer)
-Description:
-DFCGEN ist ein wissenschaftlich/technisches Programm aus dem Bereich 
-Digitale Signalverarbeitung, welches die Synthese und Analyse linearer,
-zeitdiskreter Systeme (inkl. Filter) aus theoretischer Sicht ermoeglicht.
-Ausgehend vom gewuenschten Systemtyp wie Lin. FIR (Gauss-,
-Kosinus-, Kosinusquadrat-, Kuepfmueller-Tiefpass etc.) mit Fenster-
-Funktionen nach Hamming, Hanning u.a., Standard IIR-Filter (Cauer,
-Tschebyscheff, Butterworth, Bessel) mit Frequenztransformationen
-sowie speziellen Typen wie Integrator, Hilbert-Transformator, Kamm-
-Filter u.v.m. und den jeweils spezifischen Parametern (Ordnung,
-Abtastfrequenz, Grenzfrequenz, ...) werden die Koeffizienten der Z-
-Uebertragungsfunktion generiert. Das so definierte System kann danach
-weiter analysiert werden (Pol-Nullstellen-Analyse, graphische Anzeige
-und Ausdruck der Systemcharakteristiken Amplituden- und Phasengang,
-Daempfung, Drosselung, Gruppen- und Phasenlaufzeit, Impulsantwort,
-Sprungantwort).
-
-
-295 Zeichen ohne Umbrueche:
-Synthese/Analyse dig. Systeme. Koeffizienten fuer Lin. FIR (Gauss,Kuepfmueller...) mit Fenster (Hamming,Hanning...), IIR (Cauer,Tschebyscheff...), Frequenztransf., Integrator,Hilbert-Transf.,Kammfilter u.a. Plot/Print Amplituden-,Phasengang, Daempfung,Gruppenlaufzeit,Sprungantwort,PN-Plan u.a.
+Package-Name:           /pub/comp/os/windows/win3.11/science/dfcg100.zip
+Title:                  DFCGEN (Synthese/Analyse linearer, zeitdiskreter Systeme/Filter)
+Version:                1.00
+Author:                 Ralf Hoppe
+Author-Telephone:       (033764) 21115
+Author-Fax:             (033764) 21115
+Author-Postal:          Birkenring 18, 15749 Ragow, Deutschland
+Author-Email:           RalfHoppe@t-online.de
+Maintained-by:          (bleibt leer)
+Postal-Address:         (bleibt leer)
+Telephone:              (bleibt leer)
+Fax:                    (bleibt leer)
+Electronic-Address:     (bleibt leer)
+Maintained-At:          http://home.t-online.de/home/RalfHoppe/dfcgen.htm
+Distribution-Type:      binary
+Restrictions:           Win 3.1/Win95, German
+Discussion-Groups:      
+Copying-Policy:         Freeware
+Modified-by:            Name des Archivars und seine EMail-Adresse
+                        Datum der letzten Modifikation des IDX-Files
+Keywords:               DFCGEN, DSP, Signalverarbeitung, Filter, FIR, IIR,
+                        Koeffizienten, Tiefpass, Cauer, Tschebyscheff, Jacobi,
+                        Butterworth, Bessel, Gauss, Hamming, Hanning, Kaiser, 
+                        Blackman, Hilbert, Integrator, Differenzierer, Amplitudengang,
+                        Phasengang, Daempfung, Drosselung, Gruppenlaufzeit, Phasenlaufzeit,
+                        Impulsantwort, Sprungantwort
+
+
+URI:                    (bleibt leer)
+Description:
+DFCGEN ist ein wissenschaftlich/technisches Programm aus dem Bereich 
+Digitale Signalverarbeitung, welches die Synthese und Analyse linearer,
+zeitdiskreter Systeme (inkl. Filter) aus theoretischer Sicht ermoeglicht.
+Ausgehend vom gewuenschten Systemtyp wie Lin. FIR (Gauss-,
+Kosinus-, Kosinusquadrat-, Kuepfmueller-Tiefpass etc.) mit Fenster-
+Funktionen nach Hamming, Hanning u.a., Standard IIR-Filter (Cauer,
+Tschebyscheff, Butterworth, Bessel) mit Frequenztransformationen
+sowie speziellen Typen wie Integrator, Hilbert-Transformator, Kamm-
+Filter u.v.m. und den jeweils spezifischen Parametern (Ordnung,
+Abtastfrequenz, Grenzfrequenz, ...) werden die Koeffizienten der Z-
+Uebertragungsfunktion generiert. Das so definierte System kann danach
+weiter analysiert werden (Pol-Nullstellen-Analyse, graphische Anzeige
+und Ausdruck der Systemcharakteristiken Amplituden- und Phasengang,
+Daempfung, Drosselung, Gruppen- und Phasenlaufzeit, Impulsantwort,
+Sprungantwort).
+
+
+295 Zeichen ohne Umbrueche:
+Synthese/Analyse dig. Systeme. Koeffizienten fuer Lin. FIR (Gauss,Kuepfmueller...) mit Fenster (Hamming,Hanning...), IIR (Cauer,Tschebyscheff...), Frequenztransf., Integrator,Hilbert-Transf.,Kammfilter u.a. Plot/Print Amplituden-,Phasengang, Daempfung,Gruppenlaufzeit,Sprungantwort,PN-Plan u.a.

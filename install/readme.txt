@@ -1,14 +1,11 @@
 ==========================================================
-	DFCGEN v1.01 (für Windows)
+	DFCGEN v1.1x (für Windows)
 ==========================================================
 
-SHAREWARE
+FREEWARE
 
-DFCGEN v1.XX ist SHAREWARE und kann als solche ohne 
-wesentliche Einschränkungen (kostenlos) getestet werden. 
-Falls Sie Gefallen an diesem Programm finden und es 
-erwerben möchten, lesen Sie bitte die Informationen in den 
-Abschnitten LIZENZBESTIMMUNGEN und KAUF.
+DFCGEN v1.1X ist FREEWARE und kann als solche ohne 
+Einschränkungen (kostenlos) genutzt werden.
 
 
 EINFÜHRUNG
@@ -25,37 +22,37 @@ und danach das System weiter analysieren.
 DFCGEN bietet:
 
 * Lin. FIR-Systeme verschiedener Charakteristiken mit 
-Fensterfunktionen nach Hamming, Hanning, Blackman oder 
-Kaiser
+  Fensterfunktionen nach Hamming, Hanning, Blackman oder 
+  Kaiser
 * Standard IIR-Filter, wie Cauer-, Tschebyscheff, 
-Butterworth- und Bessel-Filter
+  Butterworth- und Bessel-Filter
 * Verschiedenste Systeme freien Grades, wie idealer 
-Integrator, Hilbert-Transformator, Kamm-Filter u.a.
+  Integrator, Hilbert-Transformator, Kamm-Filter u.a.
 * Vordefinierte Systeme mit abrufbaren Koeffizienten 
-(vordefinierten Grades), wie Glättungsfilter, 
-Differenzierer etc.
+  (vordefinierten Grades), wie Glättungsfilter, 
+  Differenzierer etc.
 * Frequenztransformationen in Hochpaß, Bandpaß und 
-Bandsperre
+  Bandsperre
 * Nachbearbeitungsmöglichkeit für Koeffizienten (Ändern, 
-Löschen, Runden,...)
+  Löschen, Runden,...)
 * Pol-Nullstellen-Analyse
 * Graphische Anzeige und Ausdruck der 
-Systemcharakteristiken Amplituden- und Phasengang, 
-Dämpfung, Drosselung, Gruppen- und Phasenlaufzeit, 
-Impulsantwort, Sprungantwort
+  Systemcharakteristiken Amplituden- und Phasengang, 
+  Dämpfung, Drosselung, Gruppen- und Phasenlaufzeit, 
+  Impulsantwort, Sprungantwort
 * Zoom-Funktion, anwenderdefinierte Kommentare an Kurven, 
-lin./log. und automatische Achsenskalierung
+  lin./log. und automatische Achsenskalierung
 * Darstellung mathematischer Funktionen, die in der 
-Digitalen Signalverarbeitung eine Rolle spielen
+  Digitalen Signalverarbeitung eine Rolle spielen
 * Individuelle Anpaßbarkeit der Oberfläche inklusive 
-Sicherung/Wiederherstellung bei Ende/Start von DFCGEN
+  Sicherung/Wiederherstellung bei Ende/Start von DFCGEN
 * Speichern und Laden eines Systems inklusive 
-Projektinformationen und Desktop-Layout
+  Projektinformationen und Desktop-Layout
 * automatisches Öffnen einer Projektdatei gleichzeitig mit 
-dem Start von DFCGEN
+  dem Start von DFCGEN
 * Benutzerführung und Online-Hilfe (zur Bedienung und den 
-relevanten Grundlagen der digitalen Signalverarbeitung) 
-in deutscher Sprache
+  relevanten Grundlagen der digitalen Signalverarbeitung) 
+  in deutscher Sprache
 
 
 ANFORDERUNGEN
@@ -83,7 +80,6 @@ Ihre Festplatte:
 <DFCGEN Verzeichnis>\UNINSTAL.EXE
 <DFCGEN Verzeichnis>\UNINSTAL.CFG
 <DFCGEN Verzeichnis>\README.TXT
-<DFCGEN Verzeichnis>\ORDER.TXT
 <DFCGEN Verzeichnis>\GERMAN.TXT
 <DFCGEN Verzeichnis>\BWCC.DLL
 
@@ -117,34 +113,12 @@ entstehen.
 
 LIZENZBESTIMMUNGEN
 
-Das Programm DFCGEN (das Produkt) ist SHAREWARE und kann 
-als solche ohne wesentliche Einschränkungen getestet 
-werden. Solange jedoch der vollständige Rechnungsbetrag 
-nicht bezahlt ist, bleibt das Programm Eigentum des 
-Autors. Nach vollständiger Begleichung des Kaufpreises 
-geht DFCGEN in den Besitz des Käufers über, dem damit das 
-Recht zusteht dieses Programm im Sinne einer 
-Einzelplatzlizenz privat oder gewerblich zu nutzen.
-DFCGEN darf durch jedermann frei kopiert sowie unverändert 
+Das Programm DFCGEN (das Produkt) ist FREEWARE und kann 
+als solche ohne Einschränkungen genutzt werden. DFCGEN 
+darf durch jedermann frei kopiert sowie unverändert 
 weitergegeben, jedoch nicht weiterverkauft, werden.
 Diese Bestimmungen gelten mit der Nutzung von DFCGEN durch 
 den Anwender als anerkannt.
-
-KAUF
-
-Wenn Sie sich für den Kauf von DFCGEN entscheiden, müssen 
-Sie entweder das Bestellformular ORDER.TXT ausfüllen oder 
-aber Sie bestellen Online bei Shareit unter 
-http://www.shareit.com.
-
-Sobald Ihre Bestellung und der entsprechende Betrag 
-eingegangen sind, erhalten Sie Ihre Registrierungsdaten, 
-d.h. ihre persönliche Lizens per E-Mail, Fax oder Post 
-zugesandt. Diese Informationen sollten Sie im 
-Dialogfenster Registrierung des Hilfe-Menüs eingeben, denn 
-nur so ist DFCGEN korrekt lizensiert.
-
-Achtung: Preisänderungen bleiben vorbehalten.
 
 
 COPYRIGHT
@@ -152,8 +126,8 @@ COPYRIGHT
 Alle urheberrechtlichen und gewerblichen Schutzrechte an 
 diesem Programm verbleiben beim Autor:
 
-(c) Ralf Hoppe, 1994-1999
-Berliner Str. 27
+(c) Ralf Hoppe, 1994-1998
+Berliner Strasse 27
 15711 Koenigs Wusterhausen
 Germany
 

@@ -1,7 +1,17 @@
-/* - filter definition dialogs (Lin FIR, Standard IIR, Misc FIR, Misc IIR,
-     predefined FIR/IIR)
-   - data window and frequency transform dialogs
-*/
+/* DFCGEN Filter Definition Dialogs
+ * Lin FIR, Standard IIR, Misc FIR, Misc IIR, predefined FIR/IIR
+ * data window and frequency transform dialogs
+
+ * Copyright (c) 1994-2000 Ralf Hoppe
+
+ * $Source: /home/cvs/dfcgen/src/fdfltdlg.c,v $
+ * $Revision: 1.2 $
+ * $Date: 2000-08-17 12:45:19 $
+ * $Author: ralf $
+ * History:
+   $Log: not supported by cvs2svn $
+
+ */
 
 #include "dfcwin.h"
 

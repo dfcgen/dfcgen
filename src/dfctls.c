@@ -1,4 +1,15 @@
-/* DFCGEN dialog controls */
+/* DFCGEN dialog controls
+
+ * Copyright (c) 1994-2000 Ralf Hoppe
+
+ * $Source: /home/cvs/dfcgen/src/dfctls.c,v $
+ * $Revision: 1.2 $
+ * $Date: 2000-08-17 12:45:09 $
+ * $Author: ralf $
+ * History:
+   $Log: not supported by cvs2svn $
+
+ */
 
 #include "dfcwin.h"
 

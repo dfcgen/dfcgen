@@ -1,7 +1,15 @@
-/* this module contains functions to calculate phase-, magnitude-,
+/* DFCGEN functions to calculate phase-, magnitude-,
    attenuation-, group delay-, phase delay-, impulse and step response
 
- * author : Ralf Hoppe, 1994-1998
+ * Copyright (c) 1994-2000 Ralf Hoppe
+
+ * $Source: /home/cvs/dfcgen/src/fdfltrsp.c,v $
+ * $Revision: 1.2 $
+ * $Date: 2000-08-17 12:45:20 $
+ * $Author: ralf $
+ * History:
+   $Log: not supported by cvs2svn $
+
  */
 
 #include "DFCWIN.H"

@@ -1,3 +1,16 @@
+/* DFCGEN Global Definitions and Support Functions (System)
+
+ * Copyright (c) 1994-2000 Ralf Hoppe
+
+ * $Source: /home/cvs/dfcgen/src/fdsys.c,v $
+ * $Revision: 1.3 $
+ * $Date: 2000-08-17 12:45:28 $
+ * $Author: ralf $
+ * History:
+   $Log: not supported by cvs2svn $
+
+ */
+
 #include <dir.h>                     /* definition of MAXPATH, MAXEXT, ... */
 #include <ctype.h>
 #include <string.h>
@@ -127,7 +140,6 @@ HWND hwndStatus;                                          /* status window */
 HWND hwndPosition;                  /* coordinate of mouse cursor in curve */
 HWND hwndFilterCoeff = HWND_NULL;            /* filter coefficients window */
 HWND hwndFilterRoots = HWND_NULL;                   /* filter roots window */
-unsigned NonLicenseStartupSec = UINT_MAX/2;    
 
 
 /* desktop variables/options */
@@ -523,21 +535,15 @@ void UpdateMainWinTitle()
 
     (void)GetRCVerStringInfo("InternalName", szBuf, DIM(szBuf)); /* app name */
 
-    if (!IsLicenseOk())                                /* evaluation demo */
-        LoadString(GetWindowInstance(hwndFDesk), HINT_NOLICENSE,
-                   szBuf+lstrlen(szBuf), DIM(szBuf)-lstrlen(szBuf));
-    else                 
+    if (MainFilter.f_type != NOTDEF)      /* filter defined (exist) ? */
     {
-        if (MainFilter.f_type != NOTDEF)      /* filter defined (exist) ? */
-        {
-            char *pEnd = szBuf+lstrlen(szBuf);
+        char *pEnd = szBuf+lstrlen(szBuf);
 
-            if (lstrlen(MainFilter.szPrjName) > 0)    /* cat project name */
-                wsprintf(pEnd, "  \xBB%s\xAB", MainFilter.szPrjName);
-            else
-                wsprintf(pEnd, "  %s", szPrjFileName);  /* file path/name */
-        } /* if */
-    } /* else */
+        if (lstrlen(MainFilter.szPrjName) > 0)    /* cat project name */
+            wsprintf(pEnd, "  \xBB%s\xAB", MainFilter.szPrjName);
+        else
+            wsprintf(pEnd, "  %s", szPrjFileName);  /* file path/name */
+    } /* if */
 
     SetWindowText(hwndFDesk, szBuf);
 } /* UpdateMainWinTitle */
@@ -2267,10 +2273,10 @@ static void GetAppResStr(char *rcName, char *pDestStr, int nLen)
 /* Writes application identification data to passed file */
 static void AppIdentPrintf(FILE *f)
 {
-    char szBuf[max(SIZE_LICENSE_COMPANY+1, 128)];
-    char szSerNo[SIZE_LICENSE_SERNO+1];
-    char szUsr[SIZE_LICENSE_SERNO+1];
     WORD StartupSecCrypt;
+
+    char szBuf[128];
+    WORD StartupSec = 1;
 
     AppKeyPrintf(f, IOAPPKEY_APPLICATION);
     GetAppResStr("InternalName", szBuf, DIM(szBuf));
@@ -2278,13 +2284,12 @@ static void AppIdentPrintf(FILE *f)
     GetAppResStr("FileVersion", szBuf, DIM(szBuf));
     StringPrintf(f, IOKEY_VERSION, szBuf);
 
-    GetLicenseData(szSerNo, szUsr, szBuf);
-    MemCpyCrypt(&StartupSecCrypt, &NonLicenseStartupSec, sizeof(StartupSecCrypt));
+    MemCpyCrypt(&StartupSecCrypt, &StartupSec, sizeof(StartupSecCrypt));
 
     fprintf(f, IOKEY_SETUPCODE "=%X\n", StartupSecCrypt);
-    StringPrintf(f, IOKEY_SERNO, szSerNo);
-    StringPrintf(f, IOKEY_USRNAME, szUsr);
-    StringPrintf(f, IOKEY_COMPANY, szBuf);
+    StringPrintf(f, IOKEY_SERNO, "00000-00000");  /* freeware code */
+    StringPrintf(f, IOKEY_USRNAME, "");
+    StringPrintf(f, IOKEY_COMPANY, "");
 } /* AppIdentPrintf() */
 
 
@@ -2768,6 +2773,7 @@ static BOOL BoolFlagScanf(FILE *f, char *szKey)
 /* reads application ini file */
 int ReadIniFile(char *szFileName)
 {
+    unsigned DummyInstCode;
     char szCompany[SIZE_LICENSE_COMPANY+1] = {'\0'};
     char szSerNo[SIZE_LICENSE_SERNO+1] = {'\0'};
     char szUsr[SIZE_LICENSE_SERNO+1] = {'\0'};
@@ -2778,21 +2784,14 @@ int ReadIniFile(char *szFileName)
     if (f == NULL)  return ERROR_FILEREAD;
 
                  /* read crypted startup delay (5sec are crypted to DEE4) */
-    nErr = AppIdentScanf(f, szSerNo, szUsr, szCompany, &NonLicenseStartupSec);
+    nErr = AppIdentScanf(f, szSerNo, szUsr, szCompany, &DummyInstCode);
 
     if (nErr == IDSTRNULL)                       /* scan appl. info first */
     {
-        MemCpyCrypt(&NonLicenseStartupSec, &NonLicenseStartupSec, sizeof(NonLicenseStartupSec));
-        ++NonLicenseStartupSec;    /* increment decrypted startup seconds */
-
-        if (SetLicenseData(szSerNo, szUsr, szCompany))
-        {
-            if (!DesktopCfgScanf(f)) nErr = ERROR_FILEREAD; /* scan desktop layout */
-        } /* if */
-        else nErr = ERROR_LICENSE;
+        if (!DesktopCfgScanf(f)) nErr = ERROR_FILEREAD; /* scan desktop layout */
     } /* if */
 
-    if (fclose(f) != 0) nErr = ERROR_LICENSE;
+    if (fclose(f) != 0) nErr = ERROR_FILEREAD;
     UpdateMDIMenuItems();              /* if error loading desktop layout */
     return nErr;
 } /* ReadIniFile() */

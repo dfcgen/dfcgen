@@ -1,3 +1,16 @@
+/* DFCGEN Simple Utility Functions
+
+ * Copyright (c) 1994-2000 Ralf Hoppe
+
+ * $Source: /home/cvs/dfcgen/src/fdutil.c,v $
+ * $Revision: 1.2 $
+ * $Date: 2000-08-17 12:45:30 $
+ * $Author: ralf $
+ * History:
+   $Log: not supported by cvs2svn $
+
+ */
+
 #include "DFCWIN.H"
 #include <ctype.h>
 #include <dir.h>                     /* definition of MAXPATH, MAXEXT, ... */
@@ -41,10 +54,10 @@ void DeleteChars(char *lpSrc, char *lpDelChar) /* erase special chars */
 BOOL GetRCVerStringInfo(char *szInfoType, char *pBuffer, int cbSize)
 {
     BOOL bOk;
-    char szName[256];
+    char szName[512];
     UINT dwSize;
     DWORD hVerInfoBlock;
-    void *pMemVerData;
+    void FAR *pMemVerData;
     void FAR *pData;
 
     HMODULE hM = (HMODULE)GetClassWord(hwndFDesk, GCW_HMODULE);
@@ -53,7 +66,7 @@ BOOL GetRCVerStringInfo(char *szInfoType, char *pBuffer, int cbSize)
     dwSize = (UINT)GetFileVersionInfoSize(szName, &hVerInfoBlock); /* from VER.H */
     if (dwSize < 1) return FALSE;
     if ((pMemVerData = MALLOC((size_t)dwSize)) == NULL) /* malloc Ver.-Info space */
-        return FALSE; 
+        return FALSE;
 
     bOk = GetFileVersionInfo(szName, hVerInfoBlock, dwSize, pMemVerData) != 0;
 
@@ -61,6 +74,9 @@ BOOL GetRCVerStringInfo(char *szInfoType, char *pBuffer, int cbSize)
     {         /* get first language and char set in a long word (*pData) */
         bOk = VerQueryValue(pMemVerData, "\\VarFileInfo\\Translation",
                             &pData, &dwSize);
+
+        if (pData == NULL) bOk = FALSE;
+
         if (bOk)
         {
             /* get UINT array with language and charset identifier from

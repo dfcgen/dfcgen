@@ -11,3 +11,4 @@ int ReadIniFile(char *szFileName);
 
 #define __FDSYS_H
 #endif
+

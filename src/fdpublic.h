@@ -48,7 +48,6 @@ extern int cxyBmpSamples;       /* width/height of discret points in diag */
 extern int cxyBmpRoots;    /* width/height of roots bitmap in root dialog */
 extern int nWidthCurvePen;       /* widt of curve pen in continuous diags */
 extern char szPrjFileName[];
-extern unsigned NonLicenseStartupSec;
 
 
 #define __FDPUBLIC_H

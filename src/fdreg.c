@@ -1,3 +1,16 @@
+/* DFCGEN Shareware Registration Support
+
+ * Copyright (c) 1994-2000 Ralf Hoppe
+
+ * $Source: /home/cvs/dfcgen/src/fdreg.c,v $
+ * $Revision: 1.3 $
+ * $Date: 2000-08-17 12:45:27 $
+ * $Author: ralf $
+ * History:
+   $Log: not supported by cvs2svn $
+
+ */
+
 #include <TIME.H>
 #include "DFCWIN.H"
 #include "FDREG.H"
@@ -89,9 +102,7 @@ static BOOL ChkLicense(char *szSerNo, char *szUsrName)
     strncpy(License, szUsrName, SIZE_LICENSE_USER+1);
     if ((n = lstrlen(License)) > 0)                  /* valid user name ? */
     {
-        p = (WORD *)&License[n] + 1;                     /* points to CRC */
-// !!! BUG: but i cannot fix it (registration code problem)
-//      correct: p = (WORD *)(&License[n] + 1);
+        p = (WORD *)(&License[n] + 1);             /* points to CRC */
 
         if (sscanf(szSerNo, FORMAT_LICENSE_SERNO, p-1, p) == 2)
         {                                        /* valid serial no + CRC */

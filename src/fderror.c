@@ -1,11 +1,21 @@
+/* DFCGEN Error Handler
+
+ * Copyright (c) 1994-2000 Ralf Hoppe
+
+ * $Source: /home/cvs/dfcgen/src/fderror.c,v $
+ * $Revision: 1.2 $
+ * $Date: 2000-08-17 12:45:17 $
+ * $Author: ralf $
+ * History:
+   $Log: not supported by cvs2svn $
+
+ */
+
 #include "DFCWIN.H"
 #include <signal.h>
 #include <float.h>
 #include <stdlib.h>
 
-/*****************************************************************
- * filter designer error handler                                 *
- *****************************************************************/
 
 /* 80x87 control word settings via _control87()
  * EM_INVALID    = unsupported format or 0*INF, 0/0, (+INF) + (-INF),

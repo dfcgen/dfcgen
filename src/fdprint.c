@@ -1,8 +1,15 @@
-/* printer functions digital filter coefficents generator DFCGEN
+/* DFCGEN Printer Functions
 
- * author : Ralf Hoppe, 1994-1998
+ * Copyright (c) 1994-2000 Ralf Hoppe
+
+ * $Source: /home/cvs/dfcgen/src/fdprint.c,v $
+ * $Revision: 1.2 $
+ * $Date: 2000-08-17 12:45:25 $
+ * $Author: ralf $
+ * History:
+   $Log: not supported by cvs2svn $
+
  */
-
 
 #include "DFCWIN.H"
 #include "FDPRINT.H"

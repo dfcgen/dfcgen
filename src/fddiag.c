@@ -1,3 +1,16 @@
+/* DFCGEN Screen Plot Functions
+
+ * Copyright (c) 1994-2000 Ralf Hoppe
+
+ * $Source: /home/cvs/dfcgen/src/fddiag.c,v $
+ * $Revision: 1.2 $
+ * $Date: 2000-08-17 12:45:15 $
+ * $Author: ralf $
+ * History:
+   $Log: not supported by cvs2svn $
+
+ */
+
 #include "DFCWIN.H"
 #include "FDPRINT.H"
 

@@ -1,10 +1,19 @@
-/* math./tech. design functions for digital filters
+/* DFCGEN math./tech. design functions for digital filters
+
  * supports design of various digital filters, e.g. Lin. FIR,
    Standard IIR (Bessel, Butterworth, Chebyshev and Chebyshev Inverse, Cauer)
    and various special filter functions (fitting filter, integrator, hilbert
    transformer)
 
- * author : Ralf Hoppe, 1994-1999
+ * Copyright (c) 1994-2000 Ralf Hoppe
+
+ * $Source: /home/cvs/dfcgen/src/fdfltdef.c,v $
+ * $Revision: 1.3 $
+ * $Date: 2000-08-17 12:45:18 $
+ * $Author: ralf $
+ * History:
+   $Log: not supported by cvs2svn $
+
  */
 
 #include "DFCWIN.H"

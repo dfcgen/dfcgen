@@ -10,14 +10,19 @@
 #define HELP_FNAME              APPNAME ".HLP"   /* help file name */
 
 
+#if defined(FDLANG_ENGLISH) && defined(FDLANG_GERMAN)
+#error Cannot build for more than one language
+#endif
+
+
 /* strings should'nt contain in ressource file */
-#if LANG_GERMAN
+#ifdef FDLANG_GERMAN
 #define ERROR_NOMEMORY "Unzureichender Speicherplatz !!! Fortsetzen ?"
 #define ERROR_WINDOWS_VERSION "Falsche Windows Version (kleiner 3.1) !!!"
 #endif
 
 
-#if LANG_ENGLISH
+#ifdef FDLANG_ENGLISH
 #define ERROR_NOMEMORY "Not enough memory !!! Continue ?"
 #define ERROR_WINDOWS_VERSION "This program requires Windows v3.1 or higher !!!"
 #endif
@@ -30,11 +35,11 @@
 
 #if GENBORSTYLE             /* Borland dialog style */
 
-#if LANG_GERMAN
+#ifdef FDLANG_GERMAN
 #define ERROR_LOAD_LIBRARY "Bibliothek BWCC.DLL konnte nicht geladen werden !!!"
 #endif
 
-#if LANG_ENGLISH
+#ifdef FDLANG_ENGLISH
 #define ERROR_LOAD_LIBRARY "Cannot load library BWCC.DLL !!!"
 #endif
 
@@ -186,8 +191,6 @@
 
 
 
-#define STRING_OKINPLICENSE            220
-
 
 #define STRING_USERFN_SIN              300
 #define STRING_USERFN_COS              301
@@ -281,17 +284,12 @@
 #define ERROR_PRINTOPTNOTAVAIL         544
 #define ERROR_PRINTDRVINFO             545
 #define ERROR_PRINTDOC                 546
-#define ERROR_LICENSE                  547
-#define ERROR_INPLICENSE               548
 
 #define ERROR_TITLE                    550
-
-#define HINT_NOLICENSE                 700
 
 
 
 #define FORMAT_ABOUT_INFO              800
-#define FORMAT_ABOUT_INFO_NOLICENSE    801
 
 
 /* menu items of main menu */
@@ -343,7 +341,6 @@
 #define IDM_HELP_HELP           600
 #define IDM_HELP_ABOUT          601
 #define IDM_HELP_INDEX          602
-#define IDM_HELP_REGISTER       603
 
 
 /* dialog ressources */
@@ -645,19 +642,7 @@
 
 #define IDD_ABOUTDLG                31
 #define IDD_ABOUT_TEXT             100
-#define IDD_ABOUT_REGISTER         101
 
-
-#define IDD_LICENSEDLG             32
-#define IDD_LICENSEDLG_NAME        100
-#define IDD_LICENSEDLG_COMPANY     101
-#define IDD_LICENSEDLG_SN          102
-
-
-#define IDD_STARTUPDLG             33
-#define IDD_STARTUPDLG_COUNTER     100
-#define IDD_STARTUPDLG_REGBTN      101
-#define IDD_STARTUPDLG_INFOBTN	   102
 
 
 

@@ -1,9 +1,22 @@
+/* DFCGEN Ressource Definitions 
+
+ * Copyright (c) 1994-2000 Ralf Hoppe
+
+ * $Source: /home/cvs/dfcgen/src/fdbor.rc,v $
+ * $Revision: 1.3 $
+ * $Date: 2000-08-17 12:45:14 $
+ * $Author: ralf $
+ * History:
+   $Log: not supported by cvs2svn $
+
+ */
+
 #ifdef WORKSHOP_INVOKED      /* if compiling this file from ressources workshop */
 #include "DFCDLG.H"          /* include only dialog definitions */
 
 #else                        /* if compiling this file from IDE */
 #include "DFCWIN.H"          /* include all */
-#define  LIB
+# define  LIB
 #include <VER.H>
 #endif
 
@@ -15,46 +28,46 @@
  */
 
 
-VS_VERSION_INFO VERSIONINFO
-FILEVERSION    1, 0, 1, 0 /* 0x01000000 */
-PRODUCTVERSION 1, 0, 1, 0 /* 0x01000000 */
-FILEFLAGSMASK  VS_FFI_FILEFLAGSMASK 
-FILEFLAGS      VS_FF_PRERELEASE |VS_FF_DEBUG 
-FILEOS         VOS__WINDOWS16
-FILETYPE       VFT_APP
-BEGIN
-    BLOCK "VarFileInfo"
-    BEGIN                   
-        VALUE "Translation", 0x0407, 0x04E4      /* German, Windows charset */
-    END
-	BLOCK "StringFileInfo"
-	BEGIN
-		BLOCK "040704E4"                       /* German, Windows charset */
-		BEGIN
-			VALUE "CompanyName", "Dipl.-Ing. R. Hoppe\000"
-            VALUE "LegalCopyright", "Copyright © R. Hoppe 1994-1999\000"
-			VALUE "FileDescription", "Koeffizientengenerator für digitale Systeme\000"
-			VALUE "FileVersion", "1.01\000"
-			VALUE "InternalName", APPNAME "\000"
-			VALUE "OriginalFilename", APPNAME ".EXE\000"
-			VALUE "ProductName", APPNAME " für Windows\000"
-            VALUE "E-Mail", "RalfHoppe@t-online.de"
-		END
+VS_VERSION_INFO VERSIONINFO 
+FILEVERSION 1, 1, 0, 0
+PRODUCTVERSION 1, 1, 0, 0
+FILEOS VOS__WINDOWS16
+FILETYPE VFT_APP
+{
+ BLOCK "VarFileInfo"
+ {
+  VALUE "Translation", 0x0407, 0x04E4
+ }
 
-		BLOCK "040904E4"                    /* US English, Windows charset */
-		BEGIN
-			VALUE "CompanyName", "Dipl.-Ing. R. Hoppe\000"
-            VALUE "LegalCopyright", "Copyright © R. Hoppe 1994-1999\000"
-			VALUE "FileDescription", "Digital Filter Coefficients Generator\000"
-			VALUE "FileVersion", "1.01\000"
-			VALUE "InternalName", APPNAME "\000"
-			VALUE "OriginalFilename", APPNAME ".EXE\000"
-			VALUE "ProductName", APPNAME " for Windows\000"
-            VALUE "E-Mail", "RalfHoppe@t-online.de"
-		END
-	END
+ BLOCK "StringFileInfo"
+ {
+  BLOCK "040704E4"
+  {
+   VALUE "CompanyName", "Dipl.-Ing. R. Hoppe\000"
+   VALUE "FileDescription", "Koeffizientengenerator für digitale Systeme\000"
+   VALUE "FileVersion", "1.1\000"
+   VALUE "InternalName", APPNAME "\000"
+   VALUE "LegalCopyright", "Copyright © R. Hoppe 1994-2000\000"
+   VALUE "OriginalFilename", APPNAME ".EXE\000"
+   VALUE "ProductName", APPNAME " für Windows (Freeware)\000"
+   VALUE "E-Mail", "RalfHoppe@t-online.de\000"
+  }
 
-END
+  BLOCK "040904E4"
+  {
+   VALUE "CompanyName", "Dipl.-Ing. R. Hoppe\000"
+   VALUE "FileDescription", "Digital Filter Coefficients Generator\000"
+   VALUE "FileVersion", "1.1\000"
+   VALUE "InternalName", APPNAME "\000"
+   VALUE "LegalCopyright", "Copyright © R. Hoppe 1994-2000\000"
+   VALUE "OriginalFilename", APPNAME ".EXE\000"
+   VALUE "ProductName", APPNAME " for Windows (Freeware)\000"
+   VALUE "E-Mail", "RalfHoppe@t-online.de\000"
+  }
+
+ }
+
+}
 
 
 
@@ -98,266 +111,259 @@ IDBMP_POLE BITMAP LOADONCALL MOVEABLE DISCARDABLE "pole.bmp"
 
 
 STRINGTABLE 
-BEGIN
-	STRING_MESSAGE_TITLE, "Hinweis"
-	STRING_ENDFILTERPROGRAM, "Die Systemdefinition wurde nicht gespeichert!\n Wollen Sie trotzdem beenden ?"
-	STRING_TITLE_QUESTION, "Bestätigung"
-	STRING_STATUS_DEF_CHANGED, "Typ (FIR, IIR,...) möglicherweise verändert"
-	STRING_STATUS_NOT_SAVED, "System noch nicht gespeichert"
-	STRING_STATUS_SAVED, "System ist gespeichert"
-	STRING_COEFF_GAIN1, "Die Koeffizienten des Polynoms werden so normiert, daß die DC-Verstärkung genau 1.0 wird."
-	STRING_COEFF_ROUNDING, "Die Koeffizienten des Polynoms werden gerundet. Dadurch können möglicherweise alle Null werden."
-	STRING_COEFF_DELETE, "Der markierte Koeffizient wird ersatzlos gelöscht. Der Grad des Polynoms verringert sich entsprechend."
-	STRING_OVERWRITE_DATA, "Die Systemdefinition wurde nicht gespeichert!"
-	STRING_SYS_STABIL, " Systemstabilität : ok"
-	STRING_SYS_INSTABIL, " Systemstabilität : nicht ok"
-	STRING_FRESP_DIAG, "Amplitudengang"
-	STRING_ATTENUATION_DIAG, "Dämpfung"
-	STRING_APPROXRESP_DIAG, "Drosselung"
-	STRING_IRESP_DIAG, "Impulsantwort"
-	STRING_STEPRESP_DIAG, "Sprungantwort"
-	STRING_PHASE_DIAG, "Phasengang"
-	STRING_PHASEDELAY_DIAG, "Phasenlaufzeit"
-	STRING_GROUPDELAY_DIAG, "Gruppenlaufzeit"
-	STRING_USERDEF_DIAG, "Math. Funktion"
-	STRING_ABORT_ROOTS, "Es erfolgt die Berechnung der Pole und Nullstellen der Übertragungsfunktion.\n Falls Sie diesen Vorgang abbrechen, können keine PN-Daten angezeigt werden."
-	STRING_ABORT_BESSEL, "Es erfolgt die Berechnung des Bessel-Filters (PN-Daten und Grenzfrequenz).\n Wenn Sie diesen Vorgang abbrechen, ist die Filterdefinition ungültig."
-	STRING_ABORT_CAUER, "Es erfolgt die Berechnung des Cauer-Filters (PN-Daten und Grenzfrequenz). Wenn Sie diese Vorgang abbrechen, ist die Filterdefinition ungültig."
-	STRING_WAIT_ROOT, "Berechne Pol-/Nullstellen in Z-Ebene..."
-	STRING_WAIT_BESSEL_FILTER, "Berechne Bessel-Filter..."
-	STRING_WAIT_CAUER_FILTER, "Berechne Cauer-Filter..."
-	STRING_WAIT_INTEGRATOR, "Berechne Integrator..."
-	STRING_STATUS_ROOTS_CALC, "Noch %d Pol-/Nullstellen zu berechnen..."
-	STRING_WAIT_PAINT, "Berechne Kurvenverlauf...   Abbruch mit <Strg>+<Break>"
-	STRING_ZOOM, "Ausschnitt vergrößern...   Abbruch mit <Esc>."
-	STRING_TRACK, "Kommentargröße ändern...   Abbruch mit <Esc>."
-	STRING_MOVE, "Kommentar verschieben...   Abbruch mit <Esc>."
-	STRING_READ_FILE, "System laden..."
-	STRING_SAVE_FILE, "System speichern..."
-	STRING_SAVE_INIFILE, "Konfiguration speichern..."
-	STRING_LOAD_INIFILE, "Konfiguration laden..."
-	STRING_AXISNAME_FREQUENCY, "Frequenzachse"
-	STRING_AXISNAME_TIME, "Zeitachse"
-	STRING_AXISNAME_MAGNITUDE, "Amplitude"
-	STRING_AXISNAME_ATTENUATION, "Dämpfung"
-	STRING_AXISNAME_IMPULS_RESP, "Amplitude Impulsantwort"
-	STRING_AXISNAME_STEP_RESP, "Amplitude Sprungantwort"
-	STRING_AXISNAME_PHASE, "Phase"
-	STRING_AXISNAME_PHASEDELAY, "Phasenlaufzeit"
-	STRING_AXISNAME_GROUPDELAY, "Gruppenlaufzeit"
-	STRING_AXISNAME_APPROXCHARAC, "Drosselung"
-	STRING_AXISNAME_X, "X-Achse der math. Funktion"
-	STRING_AXISNAME_Y, "Y-Achse der math. Funktion"
-	STRING_AXIS_FREQUENCY, "Frequenz"
-	STRING_AXIS_TIME, "Zeit"
-	STRING_AXIS_MAGNITUDE, "Amplitude"
-	STRING_AXIS_ATTENUATION, "Dämpfung"
-	STRING_AXIS_IMPULS_RESP, "Amplitude"
-	STRING_AXIS_STEP_RESP, "Amplitude"
-	STRING_AXIS_PHASE, "Phase"
-	STRING_AXIS_PHASEDELAY, "Laufzeit"
-	STRING_AXIS_GROUPDELAY, "Laufzeit"
-	STRING_AXIS_APPROXCHARAC, "Drosselung"
-	STRING_AXIS_X, "x"
-	STRING_AXIS_Y, "y"
-	STRING_AXIS_Z_REAL, "Re{z}"
-	STRING_AXIS_Z_IMAG, "Im{z}"
-	STRING_USERFN_SIN, "Sinus sin(x)"
-	STRING_USERFN_COS, "Kosinus cos(x)"
-	STRING_USERFN_TAN, "Tangens tan(x)"
-	STRING_USERFN_COS2, "Quadratischer Kosinus cos(x)*cos(x)"
-	STRING_USERFN_SQR, "Potenzfunktion x*x"
-	STRING_USERFN_EXP, "Exponentialfunktion exp(x)"
-	STRING_USERFN_SINH, "Sinus Hyperbolicus sinh(x)"
-	STRING_USERFN_COSH, "Cosinus Hyperbolicus cosh(x)"
-	STRING_USERFN_TANH, "Tangens Hyperbolicus tanh(x)"
-	STRING_USERFN_SI, "Spaltfunktion si(x)=sin(x)/x"
-	STRING_USERFN_SI2, "Quadrat. Spaltfunktion si(x)*si(x)"
-	STRING_USERFN_BESSEL, "Besselfunktion 1.Art J(n,x)"
-	STRING_USERFN_CHEBY, "Tschebyscheff-Funktion T(n,x)"
-	STRING_USERFN_COMPL_ELLIPTIC1, "Vollst. Ellipt. Integral 1. Art K(x)"
-	STRING_USERFN_ELLIPTIC_INTEGR1, "Unvollst. Ellipt. Integral 1. Art F(x;k)"
-	STRING_USERFN_JACOBI_SN, "Ellipt. Funktion sn(x;k)"
-	STRING_USERFN_JACOBI_CN, "Ellipt. Funktion cn(x;k)"
-	STRING_USERFN_JACOBI_DN, "Ellipt. Funktion dn(x;k)"
-	STRING_USERFN_HAMMING, "Hamming-Fenster"
-	STRING_USERFN_HANNING, "Hanning-Fenster"
-	STRING_USERFN_BLACKMAN, "Blackman-Fenster"
-	STRING_USERFN_TRIANGLE, "Dreieck-Fenster"
-	STRING_USERFN_RECTANGLE, "Rechteck-Fenster"
-	STRING_USERFN_INTEGRSIN, "Integralsinus y=Si(x)"
-	STRING_PARAM_ORDER, "&Ordnung (Grad)"
-	STRING_PARAM_ELLIPTIC_MODUL, "&Modul k"
-	STRING_NON_WIN, TXT_NON_WIN
-	STRING_HAMMING_WIN, TXT_HAMMING_WIN
-	STRING_KAISER_WIN, TXT_KAISER_WIN
-	STRING_HANNING_WIN, TXT_HANNING_WIN
-	STRING_BLACKMAN_WIN, TXT_BLACKMAN_WIN
-	STRING_NON_TRANSF, TXT_NON_TRANSF
-	STRING_LPHP_TRANSF, TXT_LPHP_TRANSF
-	STRING_LPBP_TRANSF, TXT_LPBP_TRANSF
-	STRING_LPBS_TRANSF, TXT_LPBS_TRANSF
-	STRING_FTRANSFORM_DLG_CUTOFF, "&Grenzfrequenz"
-	STRING_FTRANSFORM_DLG_BANDWIDTH, "&Bandbreite"
-	STRING_DIFFERENTIATOR, "Differenzierer (lin. FIR)"
-	STRING_INTEGRATOR, "Integrator (FIR)"
-	STRING_HILBERT90, "Hilbert Transformator (90\260 Phasenschieber)"
-	STRING_COMBFILTER, "Kammfilter (lin. FIR)"
-	STRING_AVGFIR, "Spalttiefpaß (nichtrekursiv)"
-	STRING_AVGIIR, "Spalttiefpaß (rekursiv)"
-	STRING_AVGEXP, "Exponentielles Mittelwert-Filter (IIR)"
-	STRING_DIAGITEM_SCALEVALS, "Skalierungswerte"
-	STRING_DIAGITEM_SCALELINES, "Gitter"
-	STRING_DIAGITEM_CURVE, "Kurve"
-	STRING_DIAGITEM_FRAME, "Rahmen"
-	STRING_DIAGITEM_NOTES, "Kommentar"
-	STRING_DIAGITEM_NOTEFRAME, "Kommentar-Rahmen"
-	STRING_DIAGITEM_AXISNAME, "Achsenbezeichnung"
-	STRING_PRNINFO, "Druck auf: %s an %s"
-	STRING_PRNPAGE, "Seite %d"
-	STRING_PRNHEADDIAGTYPE, "Diagramm: "
-	STRING_PRNHEADPROJECT, "Projekt: "
-	STRING_PRNHEADFILENAME, "Datei: "
-	STRING_PRNHEADPRJDESC, "Beschreibung: "
-	STRING_OKINPLICENSE, "Ihre Registrierungsdaten sind korrekt. Viel Erfolg eim Arbeiten mit " APPNAME " wünscht ...\n\nR. Hoppe (RalfHoppe@t-online.de)"
-	ERROR_TITLE, "Fehler"
-	ERROR_DIAGRAM, "Kurve konnte nicht berechnet werden."
-	ERROR_NOTEATX_SING, "Der Punkt X für den Kommentar hat keinen zugeordneten Y-Wert (Singularität oder nur diskrete Werte)."
-	ERROR_FILTER_IMPLEMENT, "Die Synthese eines Systems mit diesen Werten ist nicht möglich (alle Koeffizienten sind Null)."
-	ERROR_BESSEL_USR_BREAK, "Die Synthese des Bessel-Filters wurde unterbrochen."
-	ERROR_CAUER_USR_BREAK, "Die Synthese des Cauer-Filters wurde unterbrochen."
-	ERROR_CAUER_RIPPLEGT3DB, "Die Synthese eines Cauer-Filters (Fall II) mit einer (ermittelten) Welligkeit im Durchlaßbereich größer als 3dB wird nicht unterstützt."
-	ERROR_CAUER_MINATTLT3DB, "Die Synthese eines Cauer-Filters (Fall I) mit einer (ermittelten) minimalen Sperrdämpfung kleiner als 3dB wird nicht unterstützt."
-	ERROR_COEFF0_BAD, "Ein (Mehrere) Koeffizient(en) mit kleinem Index ist (sind) annähernd Null und wird (werden) entfernt. Die Ordnung des Polynoms verringert sich."
-	ERROR_COEFFN_BAD, "Ein (Mehrere) Koeffizient(en) mit großem Index ist (sind) annähernd Null und wird (werden) entfernt. Die Ordnung des Polynoms verringert sich."
-	ERROR_USR_ACK, "\n[Abbruch] beendet das Programm."
-	ERROR_FLOAT_OP, "Fehler während einer math. Operation."
-	ERROR_SIGINT, "Sie haben das Programm mit ^C unterbrochen."
-	ERROR_SIGTERM, "Es ist ein schwerwiegender Fehler aufgetreten."
-	ERROR_SIGABRT, "Es ist ein schwerwiegender Fehler aufgetreten."
-	ERROR_INTOVFLOW, "Überlauf bei einer math. Festkomma-Operation."
-	ERROR_INTDIV0, "Festkomma-Division durch 0."
-	ERROR_INVALID87, "Fehler während einer math. Operation."
-	ERROR_FLOATOVFLOW, "Überlauf bei einer math. Gleitkomma-Operation."
-	ERROR_FLOATUNFLOW, "Unterlauf bei einer math. Gleitkomma-Operation."
-	ERROR_FLOATDIV0, "Gleitkomma-Division durch 0."
-	ERROR_INEXACT, "Rundungsfehler bei einer math. Gleitkomma-Operation."
-	ERROR_FPESUCCIGN, " FPU-Folgefehler melden ?"
-	ERROR_ODD_ORDER_HPBP, "Für die gewählte Frequenztransformation muß die Systemordnung gerade sein."
-	ERROR_ODD_ORDER_FRDEF, "Die Ordnung eines durch Fourierreihen-Entwicklung synthetisierten FIR-Systems muß gerade sein."
-	ERROR_HILBERT_ORDER, "Ein Hilbert-Transformator mit der angegebenen Ordnung wird nicht unterstützt."
-	ERROR_LOAD_FILTER_DATA, "Die Daten des vordefinierten Systems konnten nicht geladen werden."
-	ERROR_CHANGE_PATHSPEC, "Pfad/Datei nicht gefunden oder Laufwerk nicht bereit."
-	ERROR_CVT_OVERFLOW, "Der Wert für \"%s\" ist zu groß (maximal %lG)."
-	ERROR_CVT_UNDERFLOW, "Der Wert für \"%s\" ist zu klein (minimal %lG)."
-	ERROR_CVT_EMPTY, "Sie haben vergessen einen gültigen Wert für \"%s\" einzugeben."
-	ERROR_CVT_SYNTAX, "Die Eingabe für \"%s\" entspricht nicht der Syntax für eine Zahl."
-	ERROR_CENTER_F_NOT_VALID, "Der Wert für \"Mittenfrequenz\" ist größer als die Nyquist-Frequenz"
-	ERROR_CUTOFF_BW_NOT_VALID, "Der Wert für \"Grenzfrequenz\" (HP) bzw. \"Bandbreite\" (BP, BS) ist größer als die Nyquist-Frequenz"
-	ERROR_FILEWRITE, "System konnte nicht gespeichert werden. Überprüfen Sie den verfügbaren Platz auf dem Speichermedium."
-	ERROR_FILEREAD, "Fehler beim Lesen der Datei bzw. inkompatibles Format."
-	ERROR_FILEREAD_CLOSE, "Projekt erfolgreich geladen, danach aber Fehler beim Schließen der Projektdatei."
-	ERROR_FILEREAD_OPEN, "Datei konnte nicht gefunden werden oder das Speichermedium ist nicht bereit."
-	ERROR_FILEREAD_VERSION, "Diese Datei ist nicht kompatibel (Versionskonflikt)."
-	ERROR_FILEREAD_MEM, "Nicht genug Speicherplatz um die Datei zu laden."
-	ERROR_FILEREAD_INCOMPLETE, "Daten des Systems erfolgreich geladen, aber Fehler beim Lesen der Projektinformation (Desktop Einstellungen fehlerhaft)."
-	ERROR_FILEREAD_INCMEM, "Daten des Systems erfolgreich geladen, aber nicht genug Speicherplatz um alle Projektinformationen zu laden (Desktop Einstellungen inkonsistent)."
-	ERROR_INIFILEWRITE, "Speichern der aktuellen Einstellungen in .INI-Datei nicht möglich. Überprüfen Sie den verfügbaren Platz auf dem Speichermedium!"
-	ERROR_APPMISMATCH, "Datei ist nicht kompatibel."
-	ERROR_PRINTOPTNOTAVAIL, "Weitere Druckeroptionen sind nicht verfügbar."
-	ERROR_PRINTDRVINFO, "Informationen zum Druckertreiber und -anschluß konnten nicht gelesen werden."
-	ERROR_PRINTDOC, "Während des Druckvorganges sind Fehler aufgetreten."
-	ERROR_LICENSE, "Dieses Programm ist Shareware! Für eine uneingeschränkte Nutzung sollten Sie sich registrieren lassen."
-	ERROR_INPLICENSE, "Die angegebenen Registrierungsdaten sind nicht korrekt. Bitte überprüfen Sie Ihre Eingabe oder wählen Sie [Abbruch]."
-	FORMAT_ABOUT_INFO, "%s\n%s\nVersion %s\n%s\nE-Mail: %s\n\nSpeicherplatz:\t\t%lu KB frei\nSystem-Ressourcen:\t%u%% frei"
-	FORMAT_ABOUT_INFO_NOLICENSE, "---- NICHT LIZENSIERTE VERSION ----\n\n%s\n%s\nVersion %s\n%s\nE-Mail: %s"
-	HINT_NOLICENSE, " \273NICHT LIZENSIERT\253 "
-END
+{
+ STRING_MESSAGE_TITLE, "Hinweis"
+ STRING_ENDFILTERPROGRAM, "Die Systemdefinition wurde nicht gespeichert!\n Wollen Sie trotzdem beenden ?"
+ STRING_TITLE_QUESTION, "Bestätigung"
+ STRING_STATUS_DEF_CHANGED, "Typ (FIR, IIR,...) möglicherweise verändert"
+ STRING_STATUS_NOT_SAVED, "System noch nicht gespeichert"
+ STRING_STATUS_SAVED, "System ist gespeichert"
+ STRING_COEFF_GAIN1, "Die Koeffizienten des Polynoms werden so normiert, daß die DC-Verstärkung genau 1.0 wird."
+ STRING_COEFF_ROUNDING, "Die Koeffizienten des Polynoms werden gerundet. Dadurch können möglicherweise alle Null werden."
+ STRING_COEFF_DELETE, "Der markierte Koeffizient wird ersatzlos gelöscht. Der Grad des Polynoms verringert sich entsprechend."
+ STRING_OVERWRITE_DATA, "Die Systemdefinition wurde nicht gespeichert!"
+ STRING_SYS_STABIL, " Systemstabilität : ok"
+ STRING_SYS_INSTABIL, " Systemstabilität : nicht ok"
+ STRING_FRESP_DIAG, "Amplitudengang"
+ STRING_ATTENUATION_DIAG, "Dämpfung"
+ STRING_APPROXRESP_DIAG, "Drosselung"
+ STRING_IRESP_DIAG, "Impulsantwort"
+ STRING_STEPRESP_DIAG, "Sprungantwort"
+ STRING_PHASE_DIAG, "Phasengang"
+ STRING_PHASEDELAY_DIAG, "Phasenlaufzeit"
+ STRING_GROUPDELAY_DIAG, "Gruppenlaufzeit"
+ STRING_USERDEF_DIAG, "Math. Funktion"
+ STRING_ABORT_ROOTS, "Es erfolgt die Berechnung der Pole und Nullstellen der Übertragungsfunktion.\n Falls Sie diesen Vorgang abbrechen, können keine PN-Daten angezeigt werden."
+ STRING_ABORT_BESSEL, "Es erfolgt die Berechnung des Bessel-Filters (PN-Daten und Grenzfrequenz).\n Wenn Sie diesen Vorgang abbrechen, ist die Filterdefinition ungültig."
+ STRING_ABORT_CAUER, "Es erfolgt die Berechnung des Cauer-Filters (PN-Daten und Grenzfrequenz). Wenn Sie diese Vorgang abbrechen, ist die Filterdefinition ungültig."
+ STRING_WAIT_ROOT, "Berechne Pol-/Nullstellen in Z-Ebene..."
+ STRING_WAIT_BESSEL_FILTER, "Berechne Bessel-Filter..."
+ STRING_WAIT_CAUER_FILTER, "Berechne Cauer-Filter..."
+ STRING_WAIT_INTEGRATOR, "Berechne Integrator..."
+ STRING_STATUS_ROOTS_CALC, "Noch %d Pol-/Nullstellen zu berechnen..."
+ STRING_WAIT_PAINT, "Berechne Kurvenverlauf...   Abbruch mit <Strg>+<Break>"
+ STRING_ZOOM, "Ausschnitt vergrößern...   Abbruch mit <Esc>."
+ STRING_TRACK, "Kommentargröße ändern...   Abbruch mit <Esc>."
+ STRING_MOVE, "Kommentar verschieben...   Abbruch mit <Esc>."
+ STRING_READ_FILE, "System laden..."
+ STRING_SAVE_FILE, "System speichern..."
+ STRING_SAVE_INIFILE, "Konfiguration speichern..."
+ STRING_LOAD_INIFILE, "Konfiguration laden..."
+ STRING_AXISNAME_FREQUENCY, "Frequenzachse"
+ STRING_AXISNAME_TIME, "Zeitachse"
+ STRING_AXISNAME_MAGNITUDE, "Amplitude"
+ STRING_AXISNAME_ATTENUATION, "Dämpfung"
+ STRING_AXISNAME_IMPULS_RESP, "Amplitude Impulsantwort"
+ STRING_AXISNAME_STEP_RESP, "Amplitude Sprungantwort"
+ STRING_AXISNAME_PHASE, "Phase"
+ STRING_AXISNAME_PHASEDELAY, "Phasenlaufzeit"
+ STRING_AXISNAME_GROUPDELAY, "Gruppenlaufzeit"
+ STRING_AXISNAME_APPROXCHARAC, "Drosselung"
+ STRING_AXISNAME_X, "X-Achse der math. Funktion"
+ STRING_AXISNAME_Y, "Y-Achse der math. Funktion"
+ STRING_AXIS_FREQUENCY, "Frequenz"
+ STRING_AXIS_TIME, "Zeit"
+ STRING_AXIS_MAGNITUDE, "Amplitude"
+ STRING_AXIS_ATTENUATION, "Dämpfung"
+ STRING_AXIS_IMPULS_RESP, "Amplitude"
+ STRING_AXIS_STEP_RESP, "Amplitude"
+ STRING_AXIS_PHASE, "Phase"
+ STRING_AXIS_PHASEDELAY, "Laufzeit"
+ STRING_AXIS_GROUPDELAY, "Laufzeit"
+ STRING_AXIS_APPROXCHARAC, "Drosselung"
+ STRING_AXIS_X, "x"
+ STRING_AXIS_Y, "y"
+ STRING_AXIS_Z_REAL, "Re{z}"
+ STRING_AXIS_Z_IMAG, "Im{z}"
+ STRING_USERFN_SIN, "Sinus sin(x)"
+ STRING_USERFN_COS, "Kosinus cos(x)"
+ STRING_USERFN_TAN, "Tangens tan(x)"
+ STRING_USERFN_COS2, "Quadratischer Kosinus cos(x)*cos(x)"
+ STRING_USERFN_SQR, "Potenzfunktion x*x"
+ STRING_USERFN_EXP, "Exponentialfunktion exp(x)"
+ STRING_USERFN_SINH, "Sinus Hyperbolicus sinh(x)"
+ STRING_USERFN_COSH, "Cosinus Hyperbolicus cosh(x)"
+ STRING_USERFN_TANH, "Tangens Hyperbolicus tanh(x)"
+ STRING_USERFN_SI, "Spaltfunktion si(x)=sin(x)/x"
+ STRING_USERFN_SI2, "Quadrat. Spaltfunktion si(x)*si(x)"
+ STRING_USERFN_BESSEL, "Besselfunktion 1.Art J(n,x)"
+ STRING_USERFN_CHEBY, "Tschebyscheff-Funktion T(n,x)"
+ STRING_USERFN_COMPL_ELLIPTIC1, "Vollst. Ellipt. Integral 1. Art K(x)"
+ STRING_USERFN_ELLIPTIC_INTEGR1, "Unvollst. Ellipt. Integral 1. Art F(x;k)"
+ STRING_USERFN_JACOBI_SN, "Elliptischer Sinus sn(x;k)"
+ STRING_USERFN_JACOBI_CN, "Elliptischer Kosinus cn(x;k)"
+ STRING_USERFN_JACOBI_DN, "Elliptischer Tangens dn(x;k)"
+ STRING_USERFN_HAMMING, "Hamming-Fenster"
+ STRING_USERFN_HANNING, "Hanning-Fenster"
+ STRING_USERFN_BLACKMAN, "Blackman-Fenster"
+ STRING_USERFN_TRIANGLE, "Dreieck-Fenster"
+ STRING_USERFN_RECTANGLE, "Rechteck-Fenster"
+ STRING_USERFN_INTEGRSIN, "Integralsinus y=Si(x)"
+ STRING_PARAM_ORDER, "&Ordnung (Grad)"
+ STRING_PARAM_ELLIPTIC_MODUL, "&Modul k"
+ STRING_NON_WIN, TXT_NON_WIN
+ STRING_HAMMING_WIN, TXT_HAMMING_WIN
+ STRING_KAISER_WIN, TXT_KAISER_WIN
+ STRING_HANNING_WIN, TXT_HANNING_WIN
+ STRING_BLACKMAN_WIN, TXT_BLACKMAN_WIN
+ STRING_NON_TRANSF, TXT_NON_TRANSF
+ STRING_LPHP_TRANSF, TXT_LPHP_TRANSF
+ STRING_LPBP_TRANSF, TXT_LPBP_TRANSF
+ STRING_LPBS_TRANSF, TXT_LPBS_TRANSF
+ STRING_FTRANSFORM_DLG_CUTOFF, "&Grenzfrequenz"
+ STRING_FTRANSFORM_DLG_BANDWIDTH, "&Bandbreite"
+ STRING_DIFFERENTIATOR, "Differenzierer (lin. FIR)"
+ STRING_INTEGRATOR, "Integrator (FIR)"
+ STRING_HILBERT90, "Hilbert Transformator (90\260 Phasenschieber)"
+ STRING_COMBFILTER, "Kammfilter (lin. FIR)"
+ STRING_AVGFIR, "Spalttiefpaß (nichtrekursiv)"
+ STRING_AVGIIR, "Spalttiefpaß (rekursiv)"
+ STRING_AVGEXP, "Exponentielles Mittelwert-Filter (IIR)"
+ STRING_DIAGITEM_SCALEVALS, "Skalierungswerte"
+ STRING_DIAGITEM_SCALELINES, "Gitter"
+ STRING_DIAGITEM_CURVE, "Kurve"
+ STRING_DIAGITEM_FRAME, "Rahmen"
+ STRING_DIAGITEM_NOTES, "Kommentar"
+ STRING_DIAGITEM_NOTEFRAME, "Kommentar-Rahmen"
+ STRING_DIAGITEM_AXISNAME, "Achsenbezeichnung"
+ STRING_PRNINFO, "Druck auf: %s an %s"
+ STRING_PRNPAGE, "Seite %d"
+ STRING_PRNHEADDIAGTYPE, "Diagramm: "
+ STRING_PRNHEADPROJECT, "Projekt: "
+ STRING_PRNHEADFILENAME, "Datei: "
+ STRING_PRNHEADPRJDESC, "Beschreibung: "
+ ERROR_TITLE, "Fehler"
+ ERROR_DIAGRAM, "Kurve konnte nicht berechnet werden."
+ ERROR_NOTEATX_SING, "Der Punkt X für den Kommentar hat keinen zugeordneten Y-Wert (Singularität oder nur diskrete Werte)."
+ ERROR_FILTER_IMPLEMENT, "Die Synthese eines Systems mit diesen Werten ist nicht möglich (alle Koeffizienten sind Null)."
+ ERROR_BESSEL_USR_BREAK, "Die Synthese des Bessel-Filters wurde unterbrochen."
+ ERROR_CAUER_USR_BREAK, "Die Synthese des Cauer-Filters wurde unterbrochen."
+ ERROR_CAUER_RIPPLEGT3DB, "Die Synthese eines Cauer-Filters (Fall II) mit einer (ermittelten) Welligkeit im Durchlaßbereich größer als 3dB wird nicht unterstützt."
+ ERROR_CAUER_MINATTLT3DB, "Die Synthese eines Cauer-Filters (Fall I) mit einer (ermittelten) minimalen Sperrdämpfung kleiner als 3dB wird nicht unterstützt."
+ ERROR_COEFF0_BAD, "Ein (Mehrere) Koeffizient(en) mit kleinem Index ist (sind) annähernd Null und wird (werden) entfernt. Die Ordnung des Polynoms verringert sich."
+ ERROR_COEFFN_BAD, "Ein (Mehrere) Koeffizient(en) mit großem Index ist (sind) annähernd Null und wird (werden) entfernt. Die Ordnung des Polynoms verringert sich."
+ ERROR_USR_ACK, "\n[Abbruch] beendet das Programm."
+ ERROR_FLOAT_OP, "Fehler während einer math. Operation."
+ ERROR_SIGINT, "Sie haben das Programm mit ^C unterbrochen."
+ ERROR_SIGTERM, "Es ist ein schwerwiegender Fehler aufgetreten."
+ ERROR_SIGABRT, "Es ist ein schwerwiegender Fehler aufgetreten."
+ ERROR_INTOVFLOW, "Überlauf bei einer math. Festkomma-Operation."
+ ERROR_INTDIV0, "Festkomma-Division durch 0."
+ ERROR_INVALID87, "Fehler während einer math. Operation."
+ ERROR_FLOATOVFLOW, "Überlauf bei einer math. Gleitkomma-Operation."
+ ERROR_FLOATUNFLOW, "Unterlauf bei einer math. Gleitkomma-Operation."
+ ERROR_FLOATDIV0, "Gleitkomma-Division durch 0."
+ ERROR_INEXACT, "Rundungsfehler bei einer math. Gleitkomma-Operation."
+ ERROR_FPESUCCIGN, " FPU-Folgefehler melden ?"
+ ERROR_ODD_ORDER_HPBP, "Für die gewählte Frequenztransformation muß die Systemordnung gerade sein."
+ ERROR_ODD_ORDER_FRDEF, "Die Ordnung eines durch Fourierreihen-Entwicklung synthetisierten FIR-Systems muß gerade sein."
+ ERROR_HILBERT_ORDER, "Ein Hilbert-Transformator mit der angegebenen Ordnung wird nicht unterstützt."
+ ERROR_LOAD_FILTER_DATA, "Die Daten des vordefinierten Systems konnten nicht geladen werden."
+ ERROR_CHANGE_PATHSPEC, "Pfad/Datei nicht gefunden oder Laufwerk nicht bereit."
+ ERROR_CVT_OVERFLOW, "Der Wert für \"%s\" ist zu groß (maximal %lG)."
+ ERROR_CVT_UNDERFLOW, "Der Wert für \"%s\" ist zu klein (minimal %lG)."
+ ERROR_CVT_EMPTY, "Sie haben vergessen einen gültigen Wert für \"%s\" einzugeben."
+ ERROR_CVT_SYNTAX, "Die Eingabe für \"%s\" entspricht nicht der Syntax für eine Zahl."
+ ERROR_CENTER_F_NOT_VALID, "Der Wert für \"Mittenfrequenz\" ist größer als die Nyquist-Frequenz"
+ ERROR_CUTOFF_BW_NOT_VALID, "Der Wert für \"Grenzfrequenz\" (HP) bzw. \"Bandbreite\" (BP, BS) ist größer als die Nyquist-Frequenz"
+ ERROR_FILEWRITE, "System konnte nicht gespeichert werden. Überprüfen Sie den verfügbaren Platz auf dem Speichermedium."
+ ERROR_FILEREAD, "Fehler beim Lesen der Datei bzw. inkompatibles Format."
+ ERROR_FILEREAD_CLOSE, "Projekt erfolgreich geladen, danach aber Fehler beim Schließen der Projektdatei."
+ ERROR_FILEREAD_OPEN, "Datei konnte nicht gefunden werden oder das Speichermedium ist nicht bereit."
+ ERROR_FILEREAD_VERSION, "Diese Datei ist nicht kompatibel (Versionskonflikt)."
+ ERROR_FILEREAD_MEM, "Nicht genug Speicherplatz um die Datei zu laden."
+ ERROR_FILEREAD_INCOMPLETE, "Daten des Systems erfolgreich geladen, aber Fehler beim Lesen der Projektinformation (Desktop Einstellungen fehlerhaft)."
+ ERROR_FILEREAD_INCMEM, "Daten des Systems erfolgreich geladen, aber nicht genug Speicherplatz um alle Projektinformationen zu laden (Desktop Einstellungen inkonsistent)."
+ ERROR_INIFILEWRITE, "Speichern der aktuellen Einstellungen in .INI-Datei nicht möglich. Überprüfen Sie den verfügbaren Platz auf dem Speichermedium!"
+ ERROR_APPMISMATCH, "Datei ist nicht kompatibel."
+ ERROR_PRINTOPTNOTAVAIL, "Weitere Druckeroptionen sind nicht verfügbar."
+ ERROR_PRINTDRVINFO, "Informationen zum Druckertreiber und -anschluß konnten nicht gelesen werden."
+ ERROR_PRINTDOC, "Während des Druckvorganges sind Fehler aufgetreten."
+ FORMAT_ABOUT_INFO, "%s\n%s\nVersion %s\n%s\nE-Mail: %s\n\nSpeicherplatz:\t\t%lu KB frei\nSystem-Ressourcen:\t%u%% frei"
+}
 
 MAINMENU MENU 
-BEGIN
-	POPUP "&Datei"
-	BEGIN
-		MENUITEM "Ö&ffnen...\tStrg+O", IDM_LOADFILE
-		MENUITEM "&Projekt öffnen...\tStrg+P", IDM_LOADPROJECT
-		MENUITEM "&Speichern...\tStrg+S", IDM_SAVEFILE, GRAYED
-		MENUITEM "Speichern &unter...", IDM_SAVEFILE_AS, GRAYED
-        MENUITEM "&Drucken...\tStrg+D", IDM_PRINT
-		MENUITEM SEPARATOR
-		MENUITEM "&Beenden\tALT+F4", IDM_EXIT
-	END
+{
+ POPUP "&Datei"
+ {
+  MENUITEM "Ö&ffnen...\tStrg+O", IDM_LOADFILE
+  MENUITEM "&Projekt öffnen...\tStrg+P", IDM_LOADPROJECT
+  MENUITEM "&Speichern...\tStrg+S", IDM_SAVEFILE, GRAYED
+  MENUITEM "Speichern &unter...", IDM_SAVEFILE_AS, GRAYED
+  MENUITEM "&Drucken...\tStrg+D", IDM_PRINT
+  MENUITEM SEPARATOR
+  MENUITEM "&Beenden\tALT+F4", IDM_EXIT
+ }
 
-	POPUP "&Bearbeiten"
-	BEGIN
-		POPUP "&Neues System"
-		BEGIN
-			MENUITEM "&Lin. FIR...", IDM_NEWLINFIR
-			MENUITEM "&Standard IIR...", IDM_NEWSTDIIR
-			MENUITEM "&FIR/IIR Systeme...", IDM_NEWFIRIIR
-			MENUITEM "&Vordefinierte...", IDM_NEWPREDEF
-		END
+ POPUP "&Bearbeiten"
+ {
+  POPUP "&Neues System"
+  {
+   MENUITEM "&Lin. FIR...", IDM_NEWLINFIR
+   MENUITEM "&Standard IIR...", IDM_NEWSTDIIR
+   MENUITEM "&FIR/IIR Systeme...", IDM_NEWFIRIIR
+   MENUITEM "&Vordefinierte...", IDM_NEWPREDEF
+  }
 
-		MENUITEM "&Ausgangsdaten...\tStrg+A", IDM_DEFCHANGE, GRAYED
-		MENUITEM "&Koeffizienten...", IDM_EDITCOEFF, GRAYED
-		MENUITEM "&Projektinformationen...", IDM_EDITPROJECT, GRAYED
-		MENUITEM SEPARATOR
-		MENUITEM "K&ommentare...", IDM_EDITCOMMENT, GRAYED
-	END
+  MENUITEM "&Ausgangsdaten...\tStrg+A", IDM_DEFCHANGE, GRAYED
+  MENUITEM "&Koeffizienten...", IDM_EDITCOEFF, GRAYED
+  MENUITEM "&Projektinformationen...", IDM_EDITPROJECT, GRAYED
+  MENUITEM SEPARATOR
+  MENUITEM "K&ommentare...", IDM_EDITCOMMENT, GRAYED
+ }
 
-	POPUP "&Anzeige"
-	BEGIN
-		MENUITEM "&Koeffizienten\tStrg+K", IDM_SHOWCOEFF
-		MENUITEM "&Nullstellen/Pole\tStrg+N", IDM_SHOWROOTS
-	END
+ POPUP "&Anzeige"
+ {
+  MENUITEM "&Koeffizienten\tStrg+K", IDM_SHOWCOEFF
+  MENUITEM "&Nullstellen/Pole\tStrg+N", IDM_SHOWROOTS
+ }
 
-	POPUP "&Optionen"
-	BEGIN
-		MENUITEM "&Desktop...", IDM_OPT_DESK
-		MENUITEM "&Math...", IDM_OPT_TECH
-		MENUITEM SEPARATOR
-		MENUITEM "&X-Achse...\tStrg+X", IDM_OPT_AXIS_X, GRAYED
-		MENUITEM "&Y-Achse...\tStrg+Y", IDM_OPT_AXIS_Y, GRAYED
-		MENUITEM SEPARATOR
-		MENUITEM "Math. &Funktion...", IDM_OPT_USERFN, GRAYED
-	END
+ POPUP "&Optionen"
+ {
+  MENUITEM "&Desktop...", IDM_OPT_DESK
+  MENUITEM "&Math...", IDM_OPT_TECH
+  MENUITEM SEPARATOR
+  MENUITEM "&X-Achse...\tStrg+X", IDM_OPT_AXIS_X, GRAYED
+  MENUITEM "&Y-Achse...\tStrg+Y", IDM_OPT_AXIS_Y, GRAYED
+  MENUITEM SEPARATOR
+  MENUITEM "Math. &Funktion...", IDM_OPT_USERFN, GRAYED
+ }
 
-	POPUP "&Fenster"
-	BEGIN
-		POPUP "Neues &Fenster"
-		BEGIN
-			MENUITEM "&Amplitudengang", IDM_NEW_DIAG_FRESP
-			MENUITEM "&Dämpfung", IDM_NEW_DIAG_ATTENUAT
-            MENUITEM "Dr&osselung", IDM_NEW_DIAG_APPROXRESP
-			MENUITEM "&Phasengang", IDM_NEW_DIAG_PHASE
-			MENUITEM "Phasen&laufzeit", IDM_NEW_DIAG_PHASEDELAY
-			MENUITEM "&Gruppenlaufzeit", IDM_NEW_DIAG_GROUPDELAY
-			MENUITEM "&Impulsantwort", IDM_NEW_DIAG_IMPULSRESP
-			MENUITEM "&Sprungantwort", IDM_NEW_DIAG_STEPRESP
-			MENUITEM SEPARATOR
-			MENUITEM "&Math. Funktion", IDM_NEW_DIAG_USERDEF
-		END
+ POPUP "&Fenster"
+ {
+  POPUP "Neues &Fenster"
+  {
+   MENUITEM "&Amplitudengang", IDM_NEW_DIAG_FRESP
+   MENUITEM "&Dämpfung", IDM_NEW_DIAG_ATTENUAT
+   MENUITEM "Dr&osselung", IDM_NEW_DIAG_APPROXRESP
+   MENUITEM "&Phasengang", IDM_NEW_DIAG_PHASE
+   MENUITEM "Phasen&laufzeit", IDM_NEW_DIAG_PHASEDELAY
+   MENUITEM "&Gruppenlaufzeit", IDM_NEW_DIAG_GROUPDELAY
+   MENUITEM "&Impulsantwort", IDM_NEW_DIAG_IMPULSRESP
+   MENUITEM "&Sprungantwort", IDM_NEW_DIAG_STEPRESP
+   MENUITEM SEPARATOR
+   MENUITEM "&Math. Funktion", IDM_NEW_DIAG_USERDEF
+  }
 
-		MENUITEM "Neu &Zeichnen", IDM_DIAG_REPAINT, GRAYED
-		MENUITEM SEPARATOR
-		MENUITEM "&Schließen\tStrg+F4", IDM_DIAG_CLOSE, GRAYED
-		MENUITEM SEPARATOR
-		MENUITEM "&Nebeneinander", IDM_DIAG_TILE_VERT, GRAYED
-		MENUITEM "&Übereinander", IDM_DIAG_TILE_HORIZ, GRAYED
-		MENUITEM "&Kaskade", IDM_DIAG_CASCADE, GRAYED
-		MENUITEM "&Symbole anordnen", IDM_ICON_ARRANGE, GRAYED
-	END
+  MENUITEM "Neu &Zeichnen", IDM_DIAG_REPAINT, GRAYED
+  MENUITEM SEPARATOR
+  MENUITEM "&Schließen\tStrg+F4", IDM_DIAG_CLOSE, GRAYED
+  MENUITEM SEPARATOR
+  MENUITEM "&Nebeneinander", IDM_DIAG_TILE_VERT, GRAYED
+  MENUITEM "&Übereinander", IDM_DIAG_TILE_HORIZ, GRAYED
+  MENUITEM "&Kaskade", IDM_DIAG_CASCADE, GRAYED
+  MENUITEM "&Symbole anordnen", IDM_ICON_ARRANGE, GRAYED
+ }
 
-	POPUP "&Hilfe", HELP
-	BEGIN
-		MENUITEM "Inde&x\tUmschalt+F1", IDM_HELP_INDEX
-		MENUITEM "&Hilfe verwenden", IDM_HELP_HELP
-		MENUITEM SEPARATOR
-		MENUITEM "&Info...", IDM_HELP_ABOUT
-		MENUITEM SEPARATOR
-		MENUITEM "&Registrierung...", IDM_HELP_REGISTER
-	END
+ POPUP "&Hilfe", HELP
+ {
+  MENUITEM "Inde&x\tUmschalt+F1", IDM_HELP_INDEX
+  MENUITEM "&Hilfe verwenden", IDM_HELP_HELP
+  MENUITEM SEPARATOR
+  MENUITEM "&Info...", IDM_HELP_ABOUT
+ }
 
-END
+}
 
 
 MAINMENUACCEL ACCELERATORS 
@@ -375,21 +381,6 @@ BEGIN
 END
 
 
-IDD_STARTUPDLG DIALOG 71, 58, 191, 123
-STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
-CLASS "BorDlg"
-CAPTION APPNAME
-BEGIN
-	CONTROL "", -1, SHADE_CLASS, BSS_GROUP | BSS_CTLCOLOR | BSS_RIGHT | WS_CHILD | WS_VISIBLE, 5, 5, 182, 85
-	CONTROL "Dieses Programm ist Shareware!\n\nFür eine uneingeschränkte Nutzung sollten Sie sich registrieren lassen.", -1, "STATIC", SS_CENTER | WS_CHILD | WS_VISIBLE, 15, 11, 164, 55
-	RTEXT "Noch", -1, 44, 75, 25, 8, SS_RIGHT | WS_CHILD | WS_VISIBLE | WS_GROUP
-	CONTROL "", IDD_STARTUPDLG_COUNTER, "STATIC", SS_CENTER | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_GROUP, 74, 73, 33, 12
-	LTEXT "Sekunden", -1, 114, 75, 38, 8
-	CONTROL "", -1, "BorShade", 2 | WS_CHILD | WS_VISIBLE, 0, 94, 191, 2
-	CONTROL "&Registrierung", IDD_STARTUPDLG_REGBTN, "BUTTON", BS_DEFPUSHBUTTON | BS_LEFTTEXT | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 15, 99, 56, 20
-	CONTROL "&Info", IDD_STARTUPDLG_INFOBTN, "BorBtn", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 91, 99, 32, 20
-	CONTROL "Abbruch", IDCANCEL, "BorBtn", BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 143, 99, 32, 20
-END
 
 
 
@@ -828,37 +819,17 @@ IDD_ABOUTDLG DIALOG 49, 47, 235, 141
 STYLE DS_ABSALIGN | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 CLASS "BorDlg"
 CAPTION "Info..."
-BEGIN
-	CONTROL "", -1, SHADE_CLASS, BSS_GROUP | BSS_LEFT | WS_CHILD | WS_VISIBLE, 11, 7, 214, 98
-	ICON IDICO_MAIN, -1, 18, 16, 16, 16, WS_CHILD | WS_VISIBLE
-	LTEXT "", IDD_ABOUT_TEXT, 42, 14, 177, 84
-	CONTROL "", -1, SHADE_CLASS, BSS_HDIP | WS_CHILD | WS_VISIBLE, 0, 110, 235, 2
-	CONTROL "&Registrierung", IDD_ABOUT_REGISTER, "BUTTON", BS_DEFPUSHBUTTON | BS_LEFTTEXT | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 28, 116, 56, 20
-	CONTROL "&Abbruch", IDCANCEL, BUTTON_CLASS, BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 115, 116, 32, 20
-	CONTROL "&Hilfe", IDHELP, BUTTON_CLASS, WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 178, 116, 32, 20
-END
+{
+ CONTROL "", -1, SHADE_CLASS, BSS_GROUP | BSS_LEFT | WS_CHILD | WS_VISIBLE, 11, 7, 214, 98
+ CONTROL IDICO_MAIN, -1, "STATIC", SS_ICON | WS_CHILD | WS_VISIBLE, 18, 16, 16, 16
+ CONTROL "", IDD_ABOUT_TEXT, "STATIC", SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 42, 14, 177, 84
+ CONTROL "", -1, SHADE_CLASS, BSS_HDIP | WS_CHILD | WS_VISIBLE, 0, 110, 235, 2
+ CONTROL "&Abbruch", IDCANCEL, BUTTON_CLASS, BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 44, 116, 32, 20
+ CONTROL "&Hilfe", IDHELP, BUTTON_CLASS, WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 152, 116, 32, 20
+}
 
 
 
-IDD_LICENSEDLG DIALOG 49, 47, 235, 133
-STYLE DS_ABSALIGN | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
-CLASS "BorDlg"
-CAPTION "Registrierung"
-BEGIN
-	CONTROL "", -1, SHADE_CLASS, BSS_GROUP | BSS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 11, 7, 214, 90
-	ICON IDICO_MAIN, -1, 18, 16, 16, 16, WS_CHILD | WS_VISIBLE
-	LTEXT "Bitte geben Sie Ihre Registrierungsdaten ein. Das Feld ""Firma"" ist dabei optional.", -1, 53, 12, 155, 29, WS_CHILD | WS_VISIBLE | WS_GROUP
-	CONTROL "&Name", -1, STATIC_CLASS, SS_RIGHT | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 50, 45, 23, 8
-	CONTROL "", IDD_LICENSEDLG_NAME, "EDIT", ES_LEFT | ES_AUTOHSCROLL | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 90, 45, 107, 12
-	CONTROL "&Firma", -1, STATIC_CLASS, SS_RIGHT | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 50, 61, 23, 8
-	CONTROL "", IDD_LICENSEDLG_COMPANY, "EDIT", ES_LEFT | ES_AUTOHSCROLL | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 90, 61, 106, 12
-	CONTROL "&SN #", -1, STATIC_CLASS, SS_RIGHT | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 50, 77, 23, 8
-	EDITTEXT IDD_LICENSEDLG_SN, 90, 77, 79, 12
-	CONTROL "", -1, SHADE_CLASS, BSS_HDIP | WS_CHILD | WS_VISIBLE, 0, 102, 235, 2
-	CONTROL "&Ok", IDOK, BUTTON_CLASS, BS_DEFPUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 28, 108, 32, 20
-	CONTROL "&Abbruch", IDCANCEL, BUTTON_CLASS, BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 103, 108, 32, 20
-	CONTROL "&Hilfe", IDHELP, BUTTON_CLASS, WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 178, 108, 32, 20
-END
 
 
 IDD_AXISNOTESDLG DIALOG 50, 16, 210, 191

@@ -1,6 +1,14 @@
-/* math. support functions for filter designer :
- * windowing functions, operations with polynomials (roots calculation, ...)
- * copyright (c) Ralf Hoppe 1994-1998
+/* DFCGEN Math. Support Functions (windowing, polynomials, elliptic ...)
+
+ * Copyright (c) 1994-2000 Ralf Hoppe
+
+ * $Source: /home/cvs/dfcgen/src/fdmath.c,v $
+ * $Revision: 1.3 $
+ * $Date: 2000-08-17 12:45:23 $
+ * $Author: ralf $
+ * History:
+   $Log: not supported by cvs2svn $
+
  */
 
 #include <SIGNAL.H>

@@ -37,8 +37,6 @@ EXPORTS
     PrintDlgProc             @39
     FdPrintAbortCallback     @40
     HelpAboutDlgProc         @41
-    HelpLicenseDlgProc       @42
-    NoLicenseStartupDlgProc  @43
 
     AbortDlgProc             @50
 
@@ -48,3 +46,4 @@ EXPORTS
 IMPORTS
     BWCC.BWCCMessageBox
     BWCC.BWCCDefWindowProc
+

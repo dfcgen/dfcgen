@@ -1,9 +1,17 @@
-/* filter designer main module
- * supports design of various digital filters, e.g. Lin. FIR, 
+/* DFCGEN Main Module
+ * supports design of various digital filters, e.g. Lin. FIR,
    standard IIR (Bessel, Butterworth, Chebyshev I and II)     
    and various special filter functions                       
- * running with Windows 3.1                                   
- * author : Ralf Hoppe                                        
+
+ * Copyright (c) 1994-2000 Ralf Hoppe
+
+ * $Source: /home/cvs/dfcgen/src/dfcwin.c,v $
+ * $Revision: 1.2 $
+ * $Date: 2000-08-17 12:45:11 $
+ * $Author: ralf $
+ * History:
+   $Log: not supported by cvs2svn $
+
  */
 
 
@@ -1522,16 +1530,6 @@ LRESULT CALLBACK FDDeskWndProc(HWND hwndDesk, UINT msg, WPARAM wParam, LPARAM lP
                     return 0L;
 
 
-                case IDM_HELP_REGISTER :
-                    if (FDWinDialogBox(IDD_LICENSEDLG, hwndDesk, HelpLicenseDlgProc))
-                    {
-                        (void)WriteProfile();    /* write license to INI-file */
-                        UpdateMainWinTitle();
-                        MessageAckUsr(hwndDesk, STRING_OKINPLICENSE);
-                    } /* if */
-
-                    return 0L;
-
                 case IDM_EXIT :
                     SendMessage(hwndDesk, WM_CLOSE, DUMMY_WPARAM, DUMMY_LPARAM);
                     return 0L;
@@ -1618,8 +1616,10 @@ int PASCAL WinMain(HINSTANCE hinstance, HINSTANCE hPrevInstance,
      * WfW 3.11 on MS-DOS 6.22 returns 06160A03, means Windows V 3.10
      * Hex:3.0B       Hex:6.16
      */
+
     if (LOBYTE(LOWORD(GetVersion())) < MIN_WINDOWS_VERSION)
         FatalAppExit(0, ERROR_WINDOWS_VERSION);
+
     if ((LOBYTE(LOWORD(GetVersion())) == MIN_WINDOWS_VERSION) &&
         (HIBYTE(LOWORD(GetVersion())) < MIN_WINDOWS_RELEASE))
         FatalAppExit(0, ERROR_WINDOWS_VERSION);
@@ -1630,7 +1630,6 @@ int PASCAL WinMain(HINSTANCE hinstance, HINSTANCE hPrevInstance,
     SetErrorMode(wPrevErrMode);
     if (hBwcc < HINSTANCE_ERROR) FatalAppExit(0, ERROR_LOAD_LIBRARY);
     #endif
-
 
     if (hPrevInstance == (HINSTANCE) 0)
     {
@@ -1680,7 +1679,7 @@ int PASCAL WinMain(HINSTANCE hinstance, HINSTANCE hPrevInstance,
     if (GetIniFilename(szIniPath, DIM(szIniPath)))
     {
         nErr = ReadIniFile(szIniPath);
-        if ((nErr == ERROR_LICENSE) || (nErr == IDSTRNULL))
+        if (nErr == IDSTRNULL)
             CmdShow = SW_SHOW;                /* restore with saved flags */
     } /* if */
 
@@ -1688,33 +1687,8 @@ int PASCAL WinMain(HINSTANCE hinstance, HINSTANCE hPrevInstance,
     ShowWindow(hwndFDesk, CmdShow);              /* zoom/show main window */
     WorkingMessage(0);
 
-    if (nErr != IDSTRNULL)
-    {
-        if (lstrlen(szIniPath) > 0)
-            (void)WriteIniFile(szIniPath);  /* try writing a new INI-file */
-
-		switch (FDWinDialogBox(IDD_STARTUPDLG, hwndFDesk, NoLicenseStartupDlgProc))
-        {
-            case TRUE:                      /* user want to to register ? */
-                if (FDWinDialogBox(IDD_LICENSEDLG, hwndFDesk, HelpLicenseDlgProc))
-                {
-                    (void)WriteProfile();    /* write license to INI-file */
-                    UpdateMainWinTitle();
-                    MessageAckUsr(hwndFDesk, STRING_OKINPLICENSE);
-                    break; /* TRUE */
-                } /* if */
-                                 /* if no valid registration fall through */
-            case FALSE:                          /* CANCEL button pressed */
-                DestroyWindow(hwndFDesk);  /* end (do not use WM_CLOSE) ! */
-
-            default: /* time-out */
-                break; /* FALSE, default */
-        } /* switch */
-    } /* if */
-
     if (lstrlen(lpszCmdLine) > 0) (void)LoadFilter(TRUE, lpszCmdLine);
     UpdateMainWinTitle();
-
 
     while (GetMessage(&msg, 0, 0, 0)) FDWinMsgHandler(&msg);
 

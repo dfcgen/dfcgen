@@ -18,6 +18,7 @@
 #include <math.h>
 #include <float.h>
 #include <values.h>
+#include <COMMDLG.H>
 #include <windowsx.h>
 
 /* public macros */

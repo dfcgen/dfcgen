@@ -3,7 +3,7 @@
 ;
 [OPTIONS]
 WARNING=3               ;display all warnings
-ROOT=.                  ;in accordance to #include in MAP-section
+ROOT=.                  ;in accordance to include in MAP-section
 TITLE=Hilfe Koeffizienten Generator
 CONTENTS=HelpContents   ;define context of help contents
 COMPRESS=FALSE
@@ -15,3 +15,4 @@ dfcgen.rtf
 
 [MAP]
 #include <..\SRC\FDHELP.H>      ;context numbers to string translation
+

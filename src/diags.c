@@ -1,6 +1,14 @@
-/* 2D diagram plot function PaintDiag() (not rentrant!) *
- * running on Windows 3.1x  *
- * author  : Ralf Hoppe      *
+/* DFCGEN 2D Diagram Plot Functions (not rentrant!) *
+
+ * Copyright (c) 1994-2000 Ralf Hoppe
+
+ * $Source: /home/cvs/dfcgen/src/diags.c,v $
+ * $Revision: 1.2 $
+ * $Date: 2000-08-17 12:45:12 $
+ * $Author: ralf $
+ * History:
+   $Log: not supported by cvs2svn $
+
  */
 
 #include "DIAGS.H"
