@@ -1,0 +1,50 @@
+NAME    DFCGEN
+EXETYPE WINDOWS
+
+DESCRIPTION     'Digital Filter Coefficients Generator'
+
+CODE    FIXED NONDISCARDABLE LOADONCALL
+DATA    FIXED MULTIPLE
+
+HEAPSIZE        8192
+STACKSIZE       8192
+
+EXPORTS
+    FDDeskWndProc            @10
+    GeneralDiagProc          @11
+    StatusWndProc            @12
+    IncDecEditWndProc        @13
+
+    LinFirDlgProc            @20
+    StdIIRDlgProc            @21
+    PredefFilterDlgProc      @22
+    MiscDigSystemsDlgProc    @23
+    CoeffDlgProc             @24
+    RootsDlgProc             @25
+    ModifyCoeffDlgProc       @26
+    FactorCoeffDlgProc       @27
+    NormCoeffDlgProc         @28
+    OptAxisXDlgProc          @29
+    OptAxisYDlgProc          @30
+    OptMathDlgProc           @31
+    OptDeskDlgProc           @32
+    MathFuncSelectProc       @33
+    ImpWinDlgProc            @34
+    FTransformDlgProc        @35
+    ProjectDlgProc           @36
+    OpenFileDlgProc          @37
+    AxisNoteDlgProc          @38
+    PrintDlgProc             @39
+    FdPrintAbortCallback     @40
+    HelpAboutDlgProc         @41
+    HelpLicenseDlgProc       @42
+    NoLicenseStartupDlgProc  @43
+
+    AbortDlgProc             @50
+
+
+
+
+IMPORTS
+    BWCC.BWCCMessageBox
+    BWCC.BWCCDefWindowProc
